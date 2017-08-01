@@ -1,14 +1,14 @@
-import { PortfolioPage } from './app.po';
+import { AngularCliHerokuPage } from './app.po';
 
-describe('portfolio App', () => {
-  let page: PortfolioPage;
+describe('angular-cli-heroku App', () => {
+  let page: AngularCliHerokuPage;
 
   beforeEach(() => {
-    page = new PortfolioPage();
+    page = new AngularCliHerokuPage();
   });
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });

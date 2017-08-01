@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class PortfolioPage {
+export class AngularCliHerokuPage {
   navigateTo() {
     return browser.get('/');
   }
