@@ -1,0 +1,39 @@
+
+<header id="header">
+
+    <div id="head" class="parallax" parallax-speed="2" *ngIf="page == 'home' else other">
+        <h1 id="logo" class="text-center shadow">
+            <img class="img-circle" src="assets/images/guy.jpg" alt="">
+            <span class="title head-title">{{ siteDetail.owner }}</span>
+            <span class="tagline shadow">{{ siteDetail.tagline }}</span>
+            <span class="tagline2 shadow"> <a href="">{{ siteDetail.email }}</a></span>
+        </h1>
+    </div>
+
+    <ng-template #other>
+        <div id="head" class="parallax" parallax-speed="1">
+            <h1 id="logo" class="text-center shadow">
+                <span class="title head-title">{{ siteDetail.owner }}</span>
+                <span class="tagline shadow">{{ siteDetail.tagline }}</span>
+                <span class="tagline2 shadow"> <a href="">{{ siteDetail.email }}</a></span>
+            </h1>
+        </div>
+    </ng-template>
+
+    <nav class="navbar navbar-default navbar-sticky">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a routerLink="/" (click)="pageName('home')">Home</a></li>
+                    <li><a routerLink="works" (click)="pageName('works')">Works</a></li>
+                    <li><a routerLink="blog" (click)="pageName('blog')">Blog</a></li>
+                    <li><a routerLink="about" (click)="pageName('about')">About</a></li>
+                    <li><a routerLink="contact" (click)="pageName('contact')">Contact</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->      
+        </div>  
+    </nav>
+</header>
