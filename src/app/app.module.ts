@@ -1,5 +1,5 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -9,12 +9,17 @@ import {
   HeaderComponent,
 } from './shared';
 
-
 import { HomeModule } from './home/home.module';
 import { BlogModule } from './blog/blog.module';
 import { AboutModule } from './about/about.module';
 import { ContactModule } from './contact/contact.module';
 import { WorksModule } from './works/works.module';
+import { AdminModule } from './admin/admin.module';
+import { LoginModule } from './login/login.module';
+import { ProfileModule } from './profile/profile.module';
+import { NotificationModule } from './notification/notification.module';
+import { SettingModule } from './setting/setting.module';
+import { PaceService } from './shared/services';
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
@@ -22,7 +27,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,9 +37,14 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     AboutModule,
     ContactModule,
     WorksModule,
+    AdminModule,
+    LoginModule,
+    ProfileModule,
+    NotificationModule,
+    SettingModule,
     rootRouting
   ],
-  providers: [],
+  providers: [Title, PaceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

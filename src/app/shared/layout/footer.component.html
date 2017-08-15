@@ -1,40 +1,52 @@
-<footer id="footer">
+<footer>
   <div class="container">
-    <div class="row">
+      <div class="row">
+          <div class="col-sm-4" *ngFor="let item of sitedata">
+              <a routerLink="/"> 
+                  <!-- <img src="assets/img/logo.png" alt="Coco Frontend Template" class="footer-logo"> -->
+                  <h1>Ryan Dingle</h1> 
+              </a>
+              <h5>Full Stack Developer</h5>
+              
+          </div>
 
-      <div class="col-md-12 widget" style="margin-bottom: 8%;">
-        <h3 class="widget-title text-center">Follow me</h3>
-        <div class="widget-body">
-          <p class="follow-me-icons" style="width: 150px;margin: 0px auto;">
-            <a href=""><i class="fa fa-twitter fa-2"></i></a>
-            <a href=""><i class="fa fa-dribbble fa-2"></i></a>
-            <a href=""><i class="fa fa-github fa-2"></i></a>
-            <a href=""><i class="fa fa-facebook fa-2"></i></a>
-          </p>
-        </div>
+
+          <div class="col-sm-4">
+              <h4>CONTACT US</h4>
+              <ul class="list-unstyled company-info" *ngFor="let item2 of sitedata">
+                  <li><i class="fa fa-map-marker"></i> {{item2.location}}</li>
+                  <li><i class="fa fa-phone"></i> {{item2.contact}}</li>
+                  <li><i class="fa fa-envelope"></i> <a href="mailto:{{item2.email}}">{{item2.email}}</a></li>
+                  <li><i class="fa fa-bell-o"></i> Monday - Friday: <strong>8:00 am - 7:00 pm</strong><br>Saturday - Sunday: <strong>Closed</strong></li>
+              </ul>
+          </div>
+          
+          <div class="col-sm-4 hidden-xs">
+              <h4>SOCIAL STREAM</h4>
+              <ul class="list-unstyled social-stream">
+                  <li><i class="fa fa-twitter"></i> We just released an awesome frontend template for our coco template. Come on and check it out! - <a href="http://goo.gl/ylVWzR">http://goo.gl/ylVWzR</a><br><span class="text-default text-sm">Oct 20</span></li>
+                  <li><i class="fa fa-twitter"></i> Our template is going popular. Don't miss it!<br><span class="text-default text-sm">Oct 19</span></li>
+                  <li><i class="fa fa-facebook"></i> World is becoming a crazy place. Try to avoid toxic materials.<br><span class="text-default text-sm">Oct 19</span></li>
+              </ul>
+          </div>
       </div>
-
-    </div> <!-- /row of widgets -->
+      <hr>
+      <div class="row"> 
+          <div class="col-sm-6" *ngFor="let item3 of sitedata">
+              <p>Copyright &copy; {{ today | date: 'yyyy' }} by <a routerLink="/">{{ item3.owner }}</a></p> 
+          </div>
+          <div class="col-sm-6 text-right">
+              <div class="social-links" *ngFor="let items of list">
+                    <a href="{{ items.url }}" target="__blank" class="btn btn-link">
+                        <i class="fa fa-{{ (items.name=='facebook') ? 'facebook' : (items.name =='twitter') ? 'twitter': (items.name=='linkedin') ? 'linkedin' : '' }} fa-2"></i>
+                    </a>
+              </div>
+          </div>
+      </div>
   </div>
 </footer>
 
-<footer id="underfooter">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col-md-6 widget">
-        <div class="widget-body">
-          <p>{{ siteDetail.location }}</p>
-        </div>
-      </div>
-
-      <div class="col-md-6 widget">
-        <div class="widget-body">
-          <p class="text-right">
-            Copyright &copy; {{ today | date: 'yyyy' }}, {{ siteDetail.owner }}<br> </p>
-        </div>
-      </div>
-
-    </div> <!-- /row of widgets -->
-  </div>
-</footer>
+<!--
+<ng-template #footeradmin>
+</ng-template> 
+-->

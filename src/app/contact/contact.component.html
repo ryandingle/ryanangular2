@@ -1,66 +1,69 @@
-<main id="main">
+ <section class="hero-banner">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <h2>FEEL FREE TO DROP ME A LINE!</h2><hr>
+                <div class="row">
+                    <div class="col-sm-12">
+                        I would love to hear from you. Please drop me a line and let me know what you think. I will get back to you as soon as i can.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-sm-offset-4 text-center contact-phone text-success" *ngFor="let item1 of sitedata">
+                <span class="text-lg text-primary">MOBILE NO</span><br><i class="icon-phone4"></i>
+                {{item1.contact}}
+            </div>
+        </div>
+    </div>
+</section>
 
-	<div class="container">
-		
-		<div class="row topspace">
-			<!-- Article main content -->
-			<article class="col-sm-9 maincontent">
-				<header class="page-header">
-					<h1 class="page-title">Contact</h1>
-				</header>
-				
-				<p>
-					I love to hear from you. Interested in working together? Fill out the form below with some info about your project and I will get back to you as soon as I can. Please allow a couple days for me to respond.
-				</p>
-				<br>
-					<form>
-						<div class="row">
-							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Name">
-							</div>
-							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Email">
-							</div>
-							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Phone">
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-sm-12">
-								<textarea placeholder="Type your message here..." class="form-control" rows="9"></textarea>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="col-sm-6 text-left">
-								<input class="btn btn-primary" type="submit" value="Send message">
-							</div>
-						</div>
-					</form>
+<section id="contact-form" class="contact-form block">
+    <div class="container" style="width: 90%">
+        <div class="row">
+            <div class="col-sm-6">
+                <form name="sentMessage" id="contactForm" novalidate>
+                    <legend>GET IN TOUCH</legend>
+                    <div id="success"></div> <!-- For success/fail messages -->
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="text" class="form-control" placeholder="Name" id="name" name="name">
+                            <p class="help-block"></p>
+                        </div>
+                    </div>   
 
-			</article>
-			<!-- /Article -->
-			
-			<!-- Sidebar -->
-			<aside class="col-sm-3 sidebar sidebar-right">
-
-				<div class="widget">
-					<h4>Address</h4>
-					<address>
-						{{ siteDetail.location }}
-					</address>
-					<h4>Phone:</h4>
-					<address>
-						{{ siteDetail.contactno }}
-					</address>
-				</div>
-
-			</aside>
-			<!-- /Sidebar -->
-
-		</div>
-
-	</div>
-	<br>
-</main>
+                    <div class="form-group">
+                        <div class="controls">
+                            <input type="email" class="form-control" placeholder="Email" id="email" name="email">
+                        </div>
+                    </div>  
+                          
+                    <div class="form-group">
+                        <div class="controls">
+                            <textarea rows="10" cols="100" class="form-control" id="message" name="message" style="resize:none"></textarea>
+                        </div>
+                    </div>        
+                    
+                    <div class="text-right">
+                        <button type="reset" class="btn btn-danger">RESET</button>
+                        <button type="submit" class="btn btn-primary">SEND</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="well transparent" style="color: #000" *ngFor="let item of sitedata">
+                            <h4>PHILIPPINE ADDRESS</h4>
+                            <b>ADDRESS</b>
+                            <p>{{ item.location }}</p>
+                            <b>PHONE</b>
+                            <p>{{ item.contact }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

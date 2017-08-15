@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { ContactComponent } from './contact.component';
-import { SharedModule } from '../shared'; 
+import { SharedModule, PaceService } from '../shared'; 
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
@@ -19,6 +19,6 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
   declarations: [
     ContactComponent
   ],
-  providers: []
+  providers: [PaceService]
 })
 export class ContactModule {}

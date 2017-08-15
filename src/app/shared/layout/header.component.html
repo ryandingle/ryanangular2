@@ -1,39 +1,478 @@
-
-<header id="header">
-
-    <div id="head" class="parallax" parallax-speed="2" *ngIf="page == 'home' else other">
-        <h1 id="logo" class="text-center shadow">
-            <img class="img-circle" src="assets/images/guy.jpg" alt="">
-            <span class="title head-title">{{ siteDetail.owner }}</span>
-            <span class="tagline shadow">{{ siteDetail.tagline }}</span>
-            <span class="tagline2 shadow"> <a href="">{{ siteDetail.email }}</a></span>
-        </h1>
-    </div>
-
-    <ng-template #other>
-        <div id="head" class="parallax" parallax-speed="1">
-            <h1 id="logo" class="text-center shadow">
-                <span class="title head-title">{{ siteDetail.owner }}</span>
-                <span class="tagline shadow">{{ siteDetail.tagline }}</span>
-                <span class="tagline2 shadow"> <a href="">{{ siteDetail.email }}</a></span>
-            </h1>
-        </div>
-    </ng-template>
-
-    <nav class="navbar navbar-default navbar-sticky">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+<header *ngIf="user.isLoggedIn == 0 else headeradmin" class="{{ page == 'works' ? 'inverted' : '' }}">
+    <div id="topbar">
+        <div class="container" style="width: 90%">
+            <div class="row">
+                <div class="col-sm-6 col-xs-6" *ngFor="let item of sitedata">
+                    <span class="hidden-sm hidden-xs">
+                        <i class="fa fa-location-arrow"></i> {{item.location}} 
+                    </span>
+                    <span class="vertical-space"></span> 
+                    <i class="fa fa-phone"></i> {{item.contact}}
+                </div>
+                <div class="col-sm-6 col-xs-6 text-right">
+                    <div class="btn-group social-links hidden-sm hidden-xs" *ngFor="let items of socialdata">    
+                        <a href="{{ items.url }}" target="__blank" class="btn btn-link">
+                            <i class="fa fa-{{ (items.name=='facebook') ? 'facebook' : (items.name =='twitter') ? 'twitter': (items.name=='linkedin') ? 'linkedin' : '' }} fa-2"></i>
+                        </a>
+                    </div>
+                    <!-- <a href="login.html" class="login-button">LOGIN</a>
+                    <a href="signup.html" class="signup-button">SIGN UP</a> -->
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a routerLink="/" (click)="pageName('home')">Home</a></li>
-                    <li><a routerLink="works" (click)="pageName('works')">Works</a></li>
-                    <li><a routerLink="blog" (click)="pageName('blog')">Blog</a></li>
-                    <li><a routerLink="about" (click)="pageName('about')">About</a></li>
-                    <li><a routerLink="contact" (click)="pageName('contact')">Contact</a></li>
+            <div class="top-divider"></div>
+        </div>
+    </div>            
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container" style="width: 90%">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                    <span class="fa fa-th-large"></span>
+                </button>
+                <a class="navbar-brand" routerLink="/">
+                    <h2>Ryan Dingle</h2><!-- <img src="assets/img/logo.png" data-dark-src="assets/img/logo_dark.png" alt="Coco Frontend Template" class="logo"> -->
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="main-navigation">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a routerLink="/" class="{{page == 'home' ? 'active' : ''}}" (click)="pageName('home')">HOME</a></li>
+                    <li><a routerLink="works" class="{{page == 'works' ? 'active' : ''}}" (click)="pageName('works')">PORTFOLIO</a></li>
+                    <li><a routerLink="blog" class="{{page == 'blog' ? 'active' : ''}}" (click)="pageName('blog')">BLOG</a></li>
+                    <li><a routerLink="about" class="{{page == 'about' ? 'active' : ''}}" (click)="pageName('about')">ABOUT</a></li>
+                    <li><a routerLink="contact" class="{{page == 'contact' ? 'active' : ''}}" (click)="pageName('contact')">CONTACT</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->      
-        </div>  
-    </nav>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-->
+    </nav>        
+    <section *ngIf="page != 'works'" class="main-slider fullsize" data-stellar-background-ratio="0.5" style="background-image: url(assets/assets/images/headers/indexreal.jpg)">
+        <div class="slider-caption" *ngFor="let item3 of sitedata">
+            <h1 data-animate="fadeInDown" data-delay="1000" data-duration="2s">
+                <br><br>
+                {{ (page == 'home') ? item3.tagline : ''}}
+                {{ (page == 'blog') ? 'MY BLOG' : ''}}
+                {{ (page == 'works') ? 'PORTFOLIO' : ''}}
+                {{ (page == 'about') ? 'ABOUT ME' : ''}}
+                {{ (page == 'contact') ? 'CONTACT' : ''}}
+            </h1>
+            <br>
+            <div *ngIf="page == 'home'">
+                <a data-animate="fadeInUp" data-duration="2s" data-delay="1300" routerLink="about" class="btn btn-primary btn-lg">Know More About Me ?</a>
+            </div>
+        </div>
+    </section>    
 </header>
+<ng-template #headeradmin>
+<div class="topbar">
+    <div class="topbar-left">
+        <div class="logo">
+            <h1><a href="#"><img src="assets/img/logo.png" alt="Logo"></a></h1>
+        </div>
+        <button class="button-menu-mobile open-left">
+        <i class="fa fa-bars"></i>
+        </button>
+    </div>
+    <!-- Button mobile view to collapse sidebar menu -->
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-collapse2">
+                <ul class="nav navbar-nav hidden-xs">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-th"></i></a>
+                        <div class="dropdown-menu grid-dropdown">
+                            <div class="row stacked">
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="notes-app" data-status="active"><i class="icon-edit"></i>Notes</a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="todo-app" data-status="active"><i class="icon-check"></i>Todo List</a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="calc" data-status="inactive"><i class="fa fa-calculator"></i>Calculator</a>
+                                </div>
+                            </div>
+                            <div class="row stacked">
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="weather-widget" data-status="active"><i class="icon-cloud-3"></i>Weather</a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="calendar-widget2" data-status="active"><i class="icon-calendar"></i>Calendar</a>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="javascript:;" data-app="stock-app" data-status="inactive"><i class="icon-chart-line"></i>Stocks</a>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right top-navbar">
+                    <li class="dropdown iconify hide-phone">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-globe"></i>
+                            <span class="label label-danger absolute">4</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-message">
+                            <li class="dropdown-header notif-header"><i class="icon-bell-2"></i> New Notifications<a class="pull-right" href="#"></a></li>
+                            <li class="unread">
+                                <a href="#">
+                                    <p><strong>John Doe</strong> Uploaded a photo <strong>&#34;DSC000254.jpg&#34;</strong>
+                                        <br /><i>2 minutes ago</i>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#">
+                                    <p><strong>John Doe</strong> Created an photo album  <strong>&#34;Fappening&#34;</strong>
+                                        <br /><i>8 minutes ago</i>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p><strong>John Malkovich</strong> Added 3 products
+                                        <br /><i>3 hours ago</i>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p><strong>Sonata Arctica</strong> Send you a message <strong>&#34;Lorem ipsum dolor...&#34;</strong>
+                                        <br /><i>12 hours ago</i>
+                                    </p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <p><strong>Johnny Depp</strong> Updated his avatar
+                                        <br /><i>Yesterday</i>
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer">
+                                <div class="btn-group btn-group-justified">
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-sm btn-primary"><i class="icon-ccw-1"></i> Refresh</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-sm btn-danger"><i class="icon-trash-3"></i> Clear All</a>
+                                    </div>
+                                    <div class="btn-group">
+                                        <a href="#" class="btn btn-sm btn-success">See All <i class="icon-right-open-2"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown iconify hide-phone">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="label label-danger absolute">3</span></a>
+                        <ul class="dropdown-menu dropdown-message">
+                            <li class="dropdown-header notif-header"><i class="icon-mail-2"></i> New Messages</li>
+                            <li class="unread">
+                                <a href="#" class="clearfix">
+                                    <img src="assets/images/users/chat/2.jpg" class="xs-avatar ava-dropdown" alt="Avatar">
+                                    <strong>John Doe</strong><i class="pull-right msg-time">5 minutes ago</i><br />
+                                    <p>Duis autem vel eum iriure dolor in hendrerit ...</p>
+                                </a>
+                            </li>
+                            <li class="unread">
+                                <a href="#" class="clearfix">
+                                    <img src="assets/images/users/chat/1.jpg" class="xs-avatar ava-dropdown" alt="Avatar">
+                                    <strong>Sandra Kraken</strong><i class="pull-right msg-time">22 minutes ago</i><br />
+                                    <p>Duis autem vel eum iriure dolor in hendrerit ...</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="clearfix">
+                                    <img src="assets/images/users/chat/3.jpg" class="xs-avatar ava-dropdown" alt="Avatar">
+                                    <strong>Zoey Lombardo</strong><i class="pull-right msg-time">41 minutes ago</i><br />
+                                    <p>Duis autem vel eum iriure dolor in hendrerit ...</p>
+                                </a>
+                            </li>
+                            <li class="dropdown-footer"><div class=""><a href="#" class="btn btn-sm btn-block btn-primary"><i class="fa fa-share"></i> See all messages</a></div></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown topbar-profile">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="rounded-image topbar-profile-image">
+                            <img src="assets/images/users/user-35.jpg"></span> Jane <strong>Doe</strong> 
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li><a href="#">Account Setting</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="icon-help-2"></i> Help</a></li>
+                            <li><a href="lockscreen.html"><i class="icon-lock-1"></i> Lock me</a></li>
+                            <li><a class="md-trigger" data-modal="logout-modal"><i class="icon-logout-1"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+       <!-- Search form -->
+        <form role="search" class="navbar-form">
+            <div class="form-group">
+                <input type="text" placeholder="Search" class="form-control">
+                <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+        <div class="clearfix"></div>
+        <!--- Profile -->
+        <div class="profile-info">
+            <div class="col-xs-4">
+              <a routerLink="profile" class="rounded-image profile-image"><img src="assets/images/users/user-100.jpg"></a>
+            </div>
+            <div class="col-xs-8">
+                <div class="profile-text">Welcome <b>Ryan</b></div>
+                <div class="profile-buttons">
+                  <a href="javascript:;"><i class="fa fa-envelope-o pulse"></i></a>
+                  <a href="#connect" class="open-right"><i class="fa fa-globe"></i></a>
+                  <a href="javascript:;" title="Sign Out"><i class="fa fa-power-off text-red-1"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--- Divider -->
+        <div class="clearfix"></div>
+        <hr class="divider" />
+        <div class="clearfix"></div>
+        <!--- Divider -->
+        <div id="sidebar-menu">
+            <ul>
+                <li class='has_sub'>
+                    <a href='javascript:void(0);'>
+                        <i class='icon-home-3'></i>
+                        <span>Dashboard</span> 
+                        <span class="pull-right">
+                        <i class="fa fa-angle-down"></i>
+                        </span>
+                    </a>
+                    <ul>
+                        <li><a href='index.html' class='active'><span>Dashboard v1</span></a></li>
+                        <li><a href='index2.html'><span>Dashboard v2</span></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <br><br><br>
+    </div>
+    <div class="left-footer">
+        <div class="progress progress-xs">
+          <div class="progress-bar bg-green-1" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+            <span class="progress-precentage">80%</span>
+          </div>
+          
+          <a data-toggle="tooltip" title="See task progress" class="btn btn-default md-trigger" data-modal="task-progress"><i class="fa fa-inbox"></i></a>
+        </div>
+    </div>
+</div>
+<div class="right side-menu">
+    <ul class="nav nav-tabs nav-justified" id="right-tabs">
+      <li class="active"><a href="#feed" data-toggle="tab" title="Live Feed"><i class="icon-rss-2"></i></a></li>
+      <li><a href="#connect" data-toggle="tab" title="Chat"><i class="icon-chat"></i></a></li>
+      <li><a href="#settings" data-toggle="tab" title="Preferences"><i class="icon-wrench"></i></a></li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="feed">
+            <div class="tab-inner slimscroller">
+                <div class="search-right">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <div class="right-toolbar">
+                    <a href="javascript:;" class="pull-right">Settings <i class="icon-cog"></i></a>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="panel-group" id="collapse">
+                  <div class="panel panel-default">
+                    <div class="panel-heading bg-orange-1">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#rnotifications">
+                          <i class="icon-bell-2"></i> Notifications
+                          <span class="label bg-darkblue-1 pull-right">4</span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="rnotifications" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ul class="list-unstyled" id="notification-list">
+                            <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-video"></i></span> 1 Video Uploaded <span class="muted">12 minutes ago</span></a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-users-1"></i></span> 3 Users signed up <span class="muted">16 minutes ago</span></a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-picture-1"></i></span> 1 Video Uploaded <span class="muted">12 minutes ago</span></a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper"><i class="icon-hourglass-1"></i></span> Deadline for 1 project <span class="muted">12 minutes ago</span></a></li>
+                        </ul>
+                        <a class="btn btn-block btn-sm btn-warning">See all notifications</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading bg-green-3">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#remails">
+                          <i class="icon-mail"></i> E-mails
+                          <span class="label bg-darkblue-1 pull-right">3</span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="remails" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ul class="list-unstyled" id="inbox-list">
+                            <li><a href="javascript:;"><span class="sender"><i class="icon-star text-yellow-2"></i> Kim Wilde</span> <span class="datetime">6 mins ago</span>
+                                <span class="title">You keep me hangin on</span>
+                                <span class="content">Where are you? I am waiting for 3 hours in the restaurant. I ate 3 hamburgers.</span>
+                            </a></li>
+                            <li><a href="javascript:;"><span class="sender">Tyler Durden</span> <span class="datetime">13 hours ago</span>
+                                <span class="title">Buy some soap from market before</span>
+                                <span class="content">We are crowded here. We need some more soap at home. Buy some before you come home.</span>
+                            </a></li>
+                            <li><a href="javascript:;"><span class="sender">John Bonomo</span> <span class="datetime">Yesterday</span>
+                                <span class="title">Late delivery</span>
+                                <span class="content">Hello, I ordered 15 box of viagra for a friend of mine but he still hasn't receive them.</span>
+                            </a></li>
+                        </ul>
+                        <a class="btn btn-block btn-sm btn-primary">Go to inbox</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading bg-blue-1">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#rupdates">
+                          <i class="icon-signal-2"></i> Updates
+                          <span class="label bg-darkblue-1 pull-right">5</span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="rupdates" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ul class="list-unstyled" id="updates-list">
+                            <li><a href="javascript:;"><span class="icon-wrapper bg-green-1"><i class="icon-comment-1"></i></span> <b>David Guetta</b> came online <abbr title="15 seconds ago">just now</abbr>.</a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper bg-red-1"><i class="icon-user-3"></i></span> <b>Katy Perry</b> updated her profile <abbr title="4 mins ago">4 mins ago</abbr>.</a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper bg-blue-1"><i class="icon-twitter-2"></i></span> <b>4 tweets posted</b> with cronjob <abbr title="22 mins ago">22 mins ago</abbr>.</a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper bg-orange-3"><i class="icon-water"></i></span> <b>Adele</b> set fire to the rain <abbr title="43 mins ago">43 mins ago</abbr>.</a></li>
+                            <li><a href="javascript:;"><span class="icon-wrapper bg-pink-2"><i class="icon-heart-broken"></i></span> <b>Taylor Swift</b> learned that you are trouble <abbr title="3 hours ago">3 days ago</abbr>.</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="connect">
+            <div class="tab-inner slimscroller">
+                <div class="search-right">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>  
+                <div class="panel-group" id="collapse">
+                  <div class="panel panel-default" id="chat-panel">
+                    <div class="panel-heading bg-darkblue-2">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#chat-coll">
+                          <i class="icon-briefcase-1"></i> Colleagues
+                          <span class="label bg-darkblue-1 pull-right">14</span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="chat-coll" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ul class="list-unstyled" id="chat-list">
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/1.jpg"></span> <span class="chat-user-name">Dorothy Simons</span><span class="chat-user-msg">I wish I was a bird in the sky</span></a></li>
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/2.jpg"></span> <span class="chat-user-name">John Malkovich</span><span class="chat-user-msg">You were the traitor</span></a></li>
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/3.jpg"></span> <span class="chat-user-name">Jessica Simons</span><span class="chat-user-msg">Where is my mind</span></a></li>
+                            <li><a href="javascript:;" class="away"><span class="chat-user-avatar"><img src="assets/images/users/chat/4.jpg"></span> <span class="chat-user-name">Jack Stallman</span><span class="chat-user-msg">Away since 13:32</span></a></li>
+                            <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="assets/images/users/chat/5.jpg"></span> <span class="chat-user-name">Neil Armstrong</span><span class="chat-user-msg" title="I am flying to the moon and back">I am flying to the moon and back</span></a></li>
+                            <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="assets/images/users/chat/6.jpg"></span> <span class="chat-user-name">Hollywood Studios</span><span class="chat-user-msg">Yes he definitely is!</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default" id="chat-panel">
+                    <div class="panel-heading bg-darkblue-2">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                          <i class="icon-heart-3"></i> Friends
+                          <span class="label bg-darkblue-1 pull-right">3</span>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                        <ul class="list-unstyled" id="chat-list">
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/1.jpg"></span> <span class="chat-user-name">Dorothy Simons</span><span class="chat-user-msg">I wish I was a bird in the sky</span></a></li>
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/2.jpg"></span> <span class="chat-user-name">John Malkovich</span><span class="chat-user-msg">You were the traitor</span></a></li>
+                            <li><a href="javascript:;" class="online"><span class="chat-user-avatar"><img src="assets/images/users/chat/3.jpg"></span> <span class="chat-user-name">Jessica Simons</span><span class="chat-user-msg" title="Eminem - The Monster ft. Rihanna"><i class="icon-play"></i> Eminem - The Monster ft. Rihanna</span></a></li>
+                            <li><a href="javascript:;" class="away"><span class="chat-user-avatar"><img src="assets/images/users/chat/4.jpg"></span> <span class="chat-user-name">Jack Stallman</span><span class="chat-user-msg">Away since 13:32</span></a></li>
+                            <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="assets/images/users/chat/5.jpg"></span> <span class="chat-user-name">Neil Armstrong</span><span class="chat-user-msg" title="I am flying to the moon and back">I am flying to the moon and back</span></a></li>
+                            <li><a href="javascript:;" class="offline"><span class="chat-user-avatar"><img src="assets/images/users/chat/6.jpg"></span> <span class="chat-user-name">Hollywood Studios</span><span class="chat-user-msg">Yes he definitely is!</span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="settings">
+            <div class="tab-inner slimscroller">
+                <div class="col-sm-12">
+                    <h3>Preferences</h3>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            Live data updates
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            Live feeds
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            Sync data to cloud
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="ios-switch ios-switch-success ios-switch-sm" checked />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            Keep activity record
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="checkbox" class="ios-switch ios-switch-danger ios-switch-sm" checked />
+                        </div>
+                    </div>
+                    <h4>Other Settings</h4>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="checkboxw"><input type="checkbox" checked> Autosave settings</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label class="checkboxw"><input type="checkbox"> Always online</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</ng-template>

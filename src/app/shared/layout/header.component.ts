@@ -1,33 +1,41 @@
-import { Component } from '@angular/core';
-import { siteDetail } from '../../shared';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { 
+  SiteModel, 
+  UserModel,
+  SocialModel
+} from '../../shared';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export class HeaderComponent {
-  constructor() {}
+export class HeaderComponent implements OnInit {
 
-  siteDetail: siteDetail = {
-    owner : 'Ryan Dingle',
-    email: 'ryandingle09@gmail.com',
-    tagline: 'Coder, Designer, Blogger',
-    location: 'Metro Manila, Philippines (PH)',
-    contactno: '+639065601556'
-  };
+  constructor(
+    private router: Router
+  ){ }
 
   page: string = 'home';
+  location: any;
 
-  pageName(page: string) {
-    this.page = page;
-    if(this.page == 'blog') {
-      this.siteDetail.owner = "Ryan Dingle' Blog";
-      this.siteDetail.tagline = "Read some interesting articles in my blog";
-      this.siteDetail.email = '';
-    } else {
-      this.siteDetail.owner = 'Ryan Dingle';
-      this.siteDetail.tagline = 'Coder, Designer, Blogger';
-      this.siteDetail.email = 'ryandingle09@gmail.com';
-    } 
+  user: UserModel = {
+    name: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+    token: '',
+    created_at: '',
+    isLoggedIn: 1
+  };
+
+  @Input() socialdata: SocialModel[];
+  @Input() sitedata: SiteModel[];
+
+  ngOnInit() {
+    this.router.events.subscribe((res) => { this.location = this.router.url;});
   }
+
+  pageName(page: string) { this.page = page;}
+  
 }

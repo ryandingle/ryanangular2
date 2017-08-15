@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
-import { siteDetail } from '../../shared';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { SiteModel, SocialModel, UserModel } from '../../shared';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html'
+  templateUrl: './footer.component.html',
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit{
+
+  constructor(
+    private router: Router,
+  ){ }
+
+  location: any;
+  socials: any[];
+
+  @Input() sitedata: SiteModel[];
+  @Input() socialdata: SocialModel[];
+
   today: number = Date.now();
 
-  siteDetail: siteDetail = {
-    owner : 'Ryan Dingle',
-    email: 'ryandingle09@gmail.com',
-    tagline: 'Coder, Designer, Blogger',
-    location: 'Metro Manila, Philippines (PH)',
-    contactno: '+639065601556'
-  };
+  ngOnInit() {
+    this.router.events.subscribe((res) => { this.location = this.router.url;});
+  }
+
+  
 }

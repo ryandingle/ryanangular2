@@ -4,7 +4,10 @@ import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 
 import { BlogComponent } from './blog.component';
 import { BlogDetailComponent } from './blog-detail.component';
-import { SharedModule } from '../shared'; 
+import { 
+  SharedModule, 
+  PaceService 
+} from '../shared'; 
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
@@ -28,6 +31,6 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     BlogComponent,
     BlogDetailComponent
   ],
-  providers: []
+  providers: [PaceService]
 })
 export class BlogModule {}

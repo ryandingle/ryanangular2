@@ -1,24 +1,40 @@
-import { Component, OnInit } from '@angular/core';
-import { siteDetail } from '../shared';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { 
+  SiteModel, 
+  SiteService, 
+  PaceService 
+} from '../shared';
 
 @Component({
-  selector: 'app-contact',
+  selector: 'app-contact"',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+     private site: SiteService,
+     private pace: PaceService
+  ) { }
 
-  siteDetail: siteDetail = {
-    owner : 'Ryan Dingle',
-    email: 'ryandingle09@gmail.com',
-    tagline: 'Coder, Designer, Blogger',
-    location: 'Metro Manila, Philippines (PH)',
-    contactno: '+639065601556'
-  };
+  sitedata: SiteModel[] = [];
+  form: any;
 
   ngOnInit() {
+    this.site.getSite().then(response => this.sitedata = response);
+    this.createForm();
+    this.pace.removePace();
+  }
+
+
+  createForm() {
+      this.form = new FormGroup({
+          name: new FormControl(),
+          email: new FormControl(),
+          phone: new FormControl(),
+          message: new FormControl(),
+      });
   }
 
 }
