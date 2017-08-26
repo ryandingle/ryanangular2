@@ -1,9 +1,14 @@
 export class UserModel {
-    name: string;
-    firstname: string;
-    lastname: string;
-    email:string;
-    token: string;
-    created_at: string;
-    isLoggedIn: number;
+	id: any;
+	name: any;
+	firstname: any;
+	lastname: any;
+	birthdate: any;
+	address: any;
+	usertype: any;
+	email: any;
+	isLoggedIn: any;
+	token: any;
+	created_at: any;
+	updated_at: any;
 }

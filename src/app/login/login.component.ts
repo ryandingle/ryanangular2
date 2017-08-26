@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
       this.createForm();
 
-      window.location.href = '/admin';
+      //window.location.href = '/admin';
   }
 
 

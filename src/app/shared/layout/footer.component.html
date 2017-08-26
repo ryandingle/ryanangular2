@@ -1,4 +1,4 @@
-<footer>
+<footer *ngIf="user.isLoggedIn == 0 else footeradmin">
   <div class="container">
       <div class="row">
           <div class="col-sm-4" *ngFor="let item of sitedata">
@@ -46,7 +46,14 @@
   </div>
 </footer>
 
-<!--
 <ng-template #footeradmin>
+ <!--  <footer *ngFor="let item of sitedata">
+      Copyright &copy; {{ today | date: 'yyyy' }} by <a routerLink="/" style="cursor: pointer">{{ item.owner }}</a>
+      <div class="footer-links pull-right">
+        <a routerLink="about" style="cursor: pointer">About</a>
+        <a routerLink="portfolio" style="cursor: pointer">Portfolio</a>
+        <a routerLink="blog" style="cursor: pointer">Blog</a>
+        <a routerLink="contact" style="cursor: pointer">Contact</a>
+      </div>
+  </footer> -->
 </ng-template> 
--->

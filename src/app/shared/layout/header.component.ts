@@ -20,13 +20,18 @@ export class HeaderComponent implements OnInit {
   location: any;
 
   user: UserModel = {
+    id: '',
     name: '',
     firstname: '',
     lastname: '',
+    birthdate: '',
+    address: '',
+    usertype: '',
     email: '',
+    isLoggedIn: 1,
     token: '',
     created_at: '',
-    isLoggedIn: 1
+    updated_at: '',
   };
 
   @Input() socialdata: SocialModel[];

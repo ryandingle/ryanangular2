@@ -20,6 +20,21 @@ export class FooterComponent implements OnInit{
 
   today: number = Date.now();
 
+  user: UserModel = {
+    id: '',
+    name: '',
+    firstname: '',
+    lastname: '',
+    birthdate: '',
+    address: '',
+    usertype: '',
+    email: '',
+    isLoggedIn: 1,
+    token: '',
+    created_at: '',
+    updated_at: '',
+  };
+
   ngOnInit() {
     this.router.events.subscribe((res) => { this.location = this.router.url;});
   }

@@ -1,0 +1,74 @@
+<form [formGroup]="form" (submit)="save(title)">
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">
+            <i class="fa fa-{{title == 'post' ? 'plus-square' : '' }}{{title == 'edit' ? 'pencil-square' : '' }}{{title == 'delete' ? 'trash' : '' }}"></i> 
+            {{title == 'post' ? 'Add New' : ''}} 
+            {{title == 'edit' ? 'Edit' : ''}} 
+            {{title == 'delete' ? 'Delete' : ''}}
+            {{name}}
+        </h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div *ngIf="title == 'delete' else crud">
+            <h3>Are you sure you want to delete this data ?</h3>
+        </div>
+        <ng-template #crud>
+            <div class="form-group {{ (errors || (form.controls['title'].error || form.controls['title'].dirty)) ? 'has-error' : '' }}">
+                <label>Title</label>
+                <input type="text" class="form-control" formControlName="title">
+                <small *ngIf="errors || (form.controls['title'].error || form.controls['title'].dirty)"> 
+                    <span class="help-block" *ngIf="errors">{{ errors.title }} </span>
+                    <span class="help-block" *ngIf="form.controls['title'].hasError('required')">The title field is required.</span> 
+                </small>
+            </div>
+            <div class="form-group {{ (errors || (form.controls['description'].error || form.controls['description'].dirty)) ? 'has-error' : '' }}">
+                <label>Description</label>
+                <input type="text" class="form-control" formControlName="description">
+                <small *ngIf="errors || (form.controls['description'].error || form.controls['description'].dirty)"> 
+                    <span class="help-block" *ngIf="errors">{{ errors.description }} </span> 
+                    <span class="help-block" *ngIf="form.controls['description'].hasError('required')">The description field is required.</span> 
+                </small>
+            </div>
+            <div class="form-group {{ (errors || (form.controls['link'].error || form.controls['link'].dirty)) ? 'has-error' : '' }}" *ngIf="name == 'Portfolio'">
+                <label>Link</label>
+                <input type="url" class="form-control" formControlName="link">
+                <small *ngIf="errors || (form.controls['link'].error || form.controls['link'].dirty)"> 
+                    <span class="help-block" *ngIf="errors">{{ errors.link }} </span> 
+                    <span class="help-block" *ngIf="form.controls['link'].hasError('required')">The link field is required.</span> 
+                    <span class="help-block" *ngIf="form.controls['link'].hasError('pattern')">The link format is invalid..</span> 
+                </small>
+            </div>
+            <div class="form-group {{ (errors || (form.controls['image'].error || form.controls['image'].dirty)) ? 'has-error' : '' }}">
+                <label>Image Cover</label>
+                <input type="file" class="form-control" formControlName="image" (change)="getFile($event)">
+                <small *ngIf="errors || (form.controls['image'].error || form.controls['image'].dirty)"> 
+                    <span class="help-block" *ngIf="errors">{{ errors.photo }} </span> 
+                    <span class="help-block" *ngIf="form.controls['image'].hasError('required')">The photo field is required.</span> 
+                </small>
+            </div>
+            <div class="form-group {{ (errors || (form.controls['status'].error || form.controls['status'].dirty)) ? 'has-error' : '' }}">
+                <label>Status</label>
+                <select formControlName="status" class="form-control">
+                    <option value="published" [selected]="published">Published</option>
+                    <option value="unpublished">Unpublished</option>
+                </select>
+                <small *ngIf="errors || (form.controls['status'].error || form.controls['status'].dirty)"> 
+                    <span class="help-block" *ngIf="errors">{{ errors.status }} </span> 
+                    <span class="help-block" *ngIf="form.controls['status'].hasError('required')">The field status is required.</span> 
+                </small>
+            </div>
+        </ng-template>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
+        <button [disabled]="title == 'delete' ? '' : !form.valid" type="submit" class="btn btn-{{title == 'post' ? 'primary' : ''}}{{title == 'edit' ? 'info' : ''}}{{title == 'delete' ? 'danger' : ''}}">
+            {{ title == 'post' ? 'Save ' : '' }}
+            {{ title == 'edit' ? 'Update ' : '' }}
+            {{ title == 'delete' ? 'Delete ' : '' }}
+            <i class="fa fa-{{title == 'post' ? 'save' : '' }}{{title == 'edit' ? 'check' : '' }}{{title == 'delete' ? 'trash' : '' }}"></i> 
+        </button>
+    </div>
+</form>

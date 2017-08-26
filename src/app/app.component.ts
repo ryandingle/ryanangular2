@@ -30,7 +30,7 @@ export class AppComponent implements OnInit{
                 window.scroll(0, 0);
         });
 
-        this.title.setTitle("Ryan Dingle - FUll Stack Developer");
+        this.title.setTitle("Ryan Dingle - Full Stack Developer");
 
     }
 

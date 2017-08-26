@@ -1,7 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
 import {
   SharedModule,
@@ -31,6 +32,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     HomeModule,
     BlogModule,
@@ -42,7 +45,8 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ProfileModule,
     NotificationModule,
     SettingModule,
-    rootRouting
+    rootRouting,
+    ModalModule.forRoot(),
   ],
   providers: [Title, PaceService],
   bootstrap: [AppComponent]
