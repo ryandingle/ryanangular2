@@ -24,10 +24,9 @@ export class RegisterComponent implements OnInit {
   }
 
   public form: any;
-  public errors: Errors[];
+  public errors: Errors;
 
   ngOnInit() {
-    this.errors = [];
     this.createForm();
   }
 

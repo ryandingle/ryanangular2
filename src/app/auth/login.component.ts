@@ -19,11 +19,10 @@ export class LoginComponent implements OnInit {
   }
 
   public form: any;
-  public errors: Errors[];
+  public errors: Errors;
   public users: UserModel;
 
   ngOnInit() {
-    this.errors = [];
     this.createForm();
   }
 
