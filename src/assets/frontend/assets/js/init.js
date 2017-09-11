@@ -68,11 +68,11 @@ $(document).ready(function(){
   });
 
   //LOAD VIDEOS
-  Pace.on("done", function(){
+  /*Pace.on("done", function(){
     $("video[data-src]").each(function(){
         $(this).attr("src",$(this).data("src"));
     });
-  });
+  });*/
   
   //TOOLTIP
   $('body').tooltip({

@@ -1,21 +1,24 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, CanActivate } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap';
 import { AdminComponent } from './admin.component';
-import { SharedModule, SiteService } from '../shared'; 
-import { PortfolioModalComponent } from '../shared/modals/portfolio.component';
-
-
-import { 
+import {  SharedModule } from '../shared';
+import {
+  SiteService,
   PortfolioService,
-  BlogService  
+  BlogService,
+  TagService,
+  CategoryService,
+  AuthGuard
 } from '../shared/services';
+import {NgSelectizeModule} from 'ng-selectize';
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'admin',
     component: AdminComponent,
+    canActivate: [AuthGuard],
   }
 ]);
 
@@ -26,10 +29,10 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     FormsModule,
     ReactiveFormsModule,
     PaginationModule.forRoot(),
+    NgSelectizeModule
   ],
   declarations: [
     AdminComponent,
-    PortfolioModalComponent
   ],
   exports: [
     
@@ -37,8 +40,12 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
   providers: [
     SiteService,
     PortfolioService,
-    BlogService
+    BlogService,
+    TagService,
+    CategoryService,
+    AuthGuard 
   ],
-  entryComponents: [PortfolioModalComponent]
+  entryComponents: [
+  ]
 })
 export class AdminModule {}

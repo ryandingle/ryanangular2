@@ -6,3 +6,5 @@ export * from './blog.service';
 export * from './category.service';
 export * from './tag.service';
 export * from './user.service';
+export * from './auth.guard';
+export * from './noAuth.guard';

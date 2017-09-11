@@ -3,12 +3,24 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 
 import { LoginComponent } from './login.component';
+import { RegisterComponent } from './register.component';
 import { SharedModule } from '../shared'; 
+import { 
+  AuthService, 
+  NoAuthGuard, 
+  AuthGuard 
+} from '../shared/services';
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
-    path: 'login',
+    path: 'auth/login',
     component: LoginComponent,
+    canActivate: [NoAuthGuard],
+  },
+  {
+    path: 'auth/register',
+    component: RegisterComponent,
+    canActivate: [NoAuthGuard],
   }
 ]);
 
@@ -20,8 +32,9 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     ReactiveFormsModule
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
-  providers: []
+  providers: [AuthService, NoAuthGuard]
 })
-export class LoginModule {}
+export class AuthModule {}

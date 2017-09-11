@@ -16,13 +16,14 @@ import { AboutModule } from './about/about.module';
 import { ContactModule } from './contact/contact.module';
 import { WorksModule } from './works/works.module';
 import { AdminModule } from './admin/admin.module';
-import { LoginModule } from './login/login.module';
+import { AuthModule } from './auth/auth.module';
 import { ProfileModule } from './profile/profile.module';
-import { NotificationModule } from './notification/notification.module';
-import { SettingModule } from './setting/setting.module';
+import { AccountModule } from './account/account.module';
 import { PaceService } from './shared/services';
+import { SiteModule } from './site/site.module';
+import { AppsModule } from './apps/apps.module';
 
-const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
+const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: false });
 
 @NgModule({
   declarations: [
@@ -41,10 +42,11 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: tru
     ContactModule,
     WorksModule,
     AdminModule,
-    LoginModule,
+    AuthModule,
     ProfileModule,
-    NotificationModule,
-    SettingModule,
+    SiteModule,
+    AccountModule,
+    AppsModule,
     rootRouting,
     ModalModule.forRoot(),
   ],

@@ -10,46 +10,46 @@ export class PortfolioService {
     constructor(private http: Http) { }
 
     private url = 'http://localhost/portfolioapi/api/v1';
-    private getHeader = new Headers({'Content-Type': 'application/json'});
-    private postHeader = null;//new Headers({'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'});
+    private headers = new Headers({'Accept': 'application/json'});
+    //private postHeader = null;//new Headers({'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'});
 
-    get(data: any): Promise<PortfolioModel[]>{
-        return this.http.post(this.url+'/project', data ,{headers: this.postHeader})
+    list(data: any): Promise<PortfolioModel[]>{
+        return this.http.post(this.url+'/project', data ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel[])
             .catch(this.handleError);
     }
 
-    getItem(id: any): Promise<PortfolioModel>{
-        return this.http.get(this.url+'/project/'+id+'/get' ,{headers: this.getHeader})
+    get(id: any): Promise<PortfolioModel>{
+        return this.http.get(this.url+'/project/'+id+'/get' ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel)
             .catch(this.handleError);
     }
 
-    getEdit(id: any): Promise<PortfolioModel>{
-        return this.http.get(this.url+'/project/'+id+'/edit' ,{headers: this.getHeader})
+    edit(id: any): Promise<PortfolioModel>{
+        return this.http.get(this.url+'/project/'+id+'/edit' ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel)
             .catch(this.handleError);
     }
 
     delete(id: any): Promise<PortfolioModel>{
-        return this.http.post(this.url+'/project/'+id+'/delete' ,{headers: this.postHeader})
+        return this.http.post(this.url+'/project/'+id+'/delete' ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel)
             .catch(this.handleError);
     }
 
-    insert(data: any): Promise<PortfolioModel>{
-        return this.http.post(this.url+'/project/post', data ,{headers: this.postHeader})
+    store(data: any): Promise<PortfolioModel>{
+        return this.http.post(this.url+'/project/post', data ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel)
             .catch(this.handleError);
     }
 
     update(data: any, id: any): Promise<PortfolioModel>{
-        return this.http.post(this.url+'/project/'+id+'/update', data ,{headers: this.postHeader})
+        return this.http.post(this.url+'/project/'+id+'/update', data ,{headers: this.headers})
             .toPromise()
             .then(response => response.json() as PortfolioModel)
             .catch(this.handleError);

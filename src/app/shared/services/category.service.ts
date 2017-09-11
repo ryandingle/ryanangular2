@@ -9,10 +9,17 @@ export class CategoryService {
     constructor(private http: Http) { }
 
     private url = 'http://localhost/portfolioapi/api/v1';
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers = new Headers({'Accept': 'application/json'});
 
-    get(): Promise<CategoryModel[]>{
-      return this.http.get(this.url+'/site', {headers: this.headers})
+    list(): Promise<CategoryModel[]>{
+      return this.http.get(this.url+'/category', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as CategoryModel[])
+        .catch(this.handleError);
+    }
+
+    store(data: any): Promise<CategoryModel[]>{
+      return this.http.post(this.url+'/category/post', data, {headers: this.headers})
         .toPromise()
         .then(response => response.json() as CategoryModel[])
         .catch(this.handleError);

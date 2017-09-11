@@ -9,10 +9,17 @@ export class TagService {
     constructor(private http: Http) { }
 
     private url = 'http://localhost/portfolioapi/api/v1';
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers = new Headers({'Accept': 'application/json'});
 
-    get(): Promise<TagModel[]>{
-      return this.http.get(this.url+'/blog', {headers: this.headers})
+    list(): Promise<TagModel[]>{
+      return this.http.get(this.url+'/tag', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as TagModel[])
+        .catch(this.handleError);
+    }
+
+    store(data:any): Promise<TagModel[]>{
+      return this.http.post(this.url+'/tag/post', data, {headers: this.headers})
         .toPromise()
         .then(response => response.json() as TagModel[])
         .catch(this.handleError);

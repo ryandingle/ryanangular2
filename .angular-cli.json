@@ -21,7 +21,6 @@
       "styles": [
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "assets/frontend/assets/libs/pace/pace.css",
         "assets/frontend/assets/libs/animate-css/animate.min.css",
         "assets/frontend/assets/libs/iconmoon/style.css",
         "assets/frontend/assets/libs/owl-carousel/owl.carousel.css",
@@ -36,7 +35,6 @@
         "assets/admin/assets/libs/nifty-modal/css/component.css",
         "assets/admin/assets/libs/magnific-popup/magnific-popup.css",
         "assets/admin/assets/libs/ios7-switch/ios7-switch.css",
-        "assets/admin/assets/libs/pace/pace.css",
         "assets/admin/assets/libs/sortable/sortable-theme-bootstrap.css",
         "assets/admin/assets/libs/bootstrap-datepicker/css/datepicker.css",
         "assets/admin/assets/libs/jquery-icheck/skins/all.css",
@@ -49,10 +47,11 @@
         "assets/admin/assets/libs/jquery-weather/simpleweather.css",
         "assets/admin/assets/libs/bootstrap-xeditable/css/bootstrap-editable.css",
         "assets/admin/assets/css/style.css",
-        "assets/admin/assets/css/style-responsive.css"
+        "assets/admin/assets/css/style-responsive.css",
+        "../node_modules/selectize/dist/css/selectize.css",
+        "../node_modules/selectize/dist/css/selectize.bootstrap3.css"
       ],
       "scripts": [
-        "assets/frontend/assets/libs/pace/pace.min.js",
         "assets/frontend/assets/libs/jquery/jquery-1.11.1.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "assets/frontend/assets/libs/jquery-browser/jquery.browser.min.js",
@@ -82,7 +81,6 @@
         "assets/admin/assets/libs/bootstrap-select/bootstrap-select.min.js",
         "assets/admin/assets/libs/bootstrap-select2/select2.min.js",
         "assets/admin/assets/libs/magnific-popup/jquery.magnific-popup.min.js",
-        "assets/admin/assets/libs/pace/pace.min.js",
         "assets/admin/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.js",
         "assets/admin/assets/libs/jquery-icheck/icheck.min.js",
         "assets/admin/assets/libs/prettify/prettify.js",
@@ -98,7 +96,8 @@
         "assets/admin/assets/libs/jquery-easypiechart/jquery.easypiechart.min.js",
         "assets/admin/assets/libs/jquery-weather/jquery.simpleWeather-2.6.min.js",
         "assets/admin/assets/libs/bootstrap-xeditable/js/bootstrap-editable.min.js",
-        "assets/admin/assets/libs/bootstrap-calendar/js/bic_calendar.min.js"
+        "assets/admin/assets/libs/bootstrap-calendar/js/bic_calendar.min.js",
+        "../node_modules/ng-selectize/selectize/selectize.standalone.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

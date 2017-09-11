@@ -2,13 +2,14 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 
-import { NotificationComponent } from './notification.component';
-import { SharedModule } from '../shared'; 
+import { AccountComponent } from './account.component';
+import { SharedModule,AuthGuard } from '../shared'; 
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
-    path: 'notification',
-    component: NotificationComponent,
+    path: 'account',
+    component: AccountComponent,
+    canActivate: [AuthGuard]
   }
 ]);
 
@@ -20,8 +21,8 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     ReactiveFormsModule
   ],
   declarations: [
-    NotificationComponent
+    AccountComponent
   ],
-  providers: []
+  providers: [AuthGuard]
 })
-export class NotificationModule {}
+export class AccountModule {}

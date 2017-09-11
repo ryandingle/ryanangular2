@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import {
   SelectMultiConfig,
   DefaultConfig,
-} from '../shared';
+} from '../../shared';
 import { 
   BlogModel, 
   PortfolioModel, 
@@ -14,7 +14,7 @@ import {
   TagModel, 
   CategoryModel,
   SelectizeModel,
-} from '../shared/models';
+} from '../../shared/models';
 import {
   BlogService, 
   PortfolioService, 
@@ -22,14 +22,15 @@ import {
   AuthService,
   TagService,
   CategoryService,
-}from '../shared/services';
+}from '../../shared/services';
+
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
+  selector: 'app-article',
+  templateUrl: './article.component.html',
 })
 
-export class AdminComponent implements OnInit {
+export class ArticleComponent implements OnInit {
 
   public modalRef: BsModalRef;
   public modalRef2: BsModalRef;

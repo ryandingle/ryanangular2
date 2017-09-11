@@ -3,9 +3,10 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Title }     from '@angular/platform-browser';
 import { 
     SiteModel, 
+    UserModel,
     SiteService, 
     SocialModel, 
-    PaceService 
+    PaceService,
 } from './shared';
 import 'rxjs/add/operator/filter'
 
@@ -20,7 +21,6 @@ export class AppComponent implements OnInit{
     constructor(
         private router: Router, 
         private site: SiteService,
-        private pace: PaceService,
         private title: Title 
     )
     {
@@ -31,7 +31,6 @@ export class AppComponent implements OnInit{
         });
 
         this.title.setTitle("Ryan Dingle - Full Stack Developer");
-
     }
 
     sitedata: SiteModel[];
@@ -40,7 +39,6 @@ export class AppComponent implements OnInit{
     ngOnInit() {
         this.site.getSite().then(response => this.sitedata = response);
         this.site.getSocial().then(response => this.socialdata = response);
-        this.pace.removePace();
     }
 
 }

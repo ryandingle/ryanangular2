@@ -1,110 +1,91 @@
 <div class="content-page" style="min-height: 600px">
     <div class="content">
-        <div class="row top-summary">
-			<div class="col-lg-3 col-md-6">
-				<div class="widget green-1 animated fadeInDown">
-					<div class="widget-content padding">
-						<div class="widget-icon">
-							<i class="icon-globe-inv"></i>
-						</div>
-						<div class="text-box">
-							<p class="maindata">TOTAL <b>VISITORS</b></p>
-							<h2><span class="animate-number" data-value="25153" data-duration="3000">0</span></h2>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="widget-footer">
-						<div class="row">
-							<div class="col-sm-12">
-								<i class="fa fa-caret-up rel-change"></i> <b>39%</b> increase in traffic
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="widget darkblue-2 animated fadeInDown">
-					<div class="widget-content padding">
-						<div class="widget-icon">
-							<i class="icon-bag"></i>
-						</div>
-						<div class="text-box">
-							<p class="maindata">TOTAL <b>SALES</b></p>
-							<h2><span class="animate-number" data-value="6399" data-duration="3000">0</span></h2>
-
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="widget-footer">
-						<div class="row">
-							<div class="col-sm-12">
-								<i class="fa fa-caret-down rel-change"></i> <b>11%</b> decrease in sales
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="widget orange-4 animated fadeInDown">
-					<div class="widget-content padding">
-						<div class="widget-icon">
-							<i class="fa fa-dollar"></i>
-						</div>
-						<div class="text-box">
-							<p class="maindata">OVERALL <b>INCOME</b></p>
-							<h2>$<span class="animate-number" data-value="70389" data-duration="3000">0</span></h2>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="widget-footer">
-						<div class="row">
-							<div class="col-sm-12">
-								<i class="fa fa-caret-down rel-change"></i> <b>7%</b> decrease in income
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="widget lightblue-1 animated fadeInDown">
-					<div class="widget-content padding">
-						<div class="widget-icon">
-							<i class="fa fa-users"></i>
-						</div>
-						<div class="text-box">
-							<p class="maindata">TOTAL <b>USERS</b></p>
-							<h2><span class="animate-number" data-value="18648" data-duration="3000">0</span></h2>
-							<div class="clearfix"></div>
-						</div>
-					</div>
-					<div class="widget-footer">
-						<div class="row">
-							<div class="col-sm-12">
-								<i class="fa fa-caret-up rel-change"></i> <b>6%</b> increase in users
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-				</div>
-			</div>
-		</div>
+    	<div class="page-heading">
+            <h1><i class="fa fa-comments-o"></i> Article</h1>
+        </div>
 		<div class="row">
 			<div class="container">
 				<div class="container">
 					<ul class="nav nav-tabs nav-simple">
 					<li class="active">
-						<a (click)="setActive('portfolio')" href="#portfolio" data-toggle="tab"><i class="fa fa-list"></i> Portfolio List</a>
+						<a (click)="setActive('blog')" href="#blog" data-toggle="tab"><i class="fa fa-list"></i> Blog List</a>
 					</li>
 					<li class="">
-						<a (click)="setActive('blog')" href="#blog" data-toggle="tab"><i class="fa fa-list"></i> Blog List</a>
+						<a (click)="setActive('category')" href="#category" data-toggle="tab"><i class="fa fa-list"></i> Category List</a>
+					</li>
+					<li class="">
+						<a (click)="setActive('tag')" href="#tag" data-toggle="tab"><i class="fa fa-list"></i> Tag List</a>
 					</li>
 				</ul>
 				</div>
 				<div class="tab-content" style="background: #ffffff">
-					<div class="tab-pane fade active in" id="portfolio">
+					<div class="tab-pane fade active in" id="blog">
+						<div class="widget">
+							<div class="widget-header transparent">
+								<div class="additional-btn">
+									<a href="#" (click)="refresh()" class="hidden reload"><i class="icon-ccw-1"></i></a>
+									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="data-table-toolbar">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="text" (keyup)="search(key2.value)" #key2 class="form-control" placeholder="Search...">
+										</div>
+										<div class="col-md-8">
+											<div class="toolbar-btn-action">
+												<a class="btn btn-success" (click)="openModal('post','Blog', '', template)"><i class="fa fa-plus-circle"></i> Add new</a>
+											</div>
+										</div>
+									</div>
+								</div>
+									
+								<div class="table-responsive">
+									<table data-sortable class="table table-hover table-striped">
+										<thead>
+											<tr>
+												<th>No</th>
+												<th>Title</th>
+												<th>Body</th>
+												<th>Status</th>
+												<th>Date Created</th>
+												<th data-sortable="false">Action</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr *ngIf="bigTotalItems == 0 else mylaman2">
+												<td colspan="7"><h4 class="text-center">No Records Found.</h4></td>
+											</tr>
+											<ng-template #mylaman2>
+												<tr *ngFor="let item2 of post">
+													<td>{{item2.id}}</td>
+													<td><strong>{{item2.title}}</strong></td>
+													<td>{{item2.body}}</td>
+													<td><span class="label label-success">{{item2.status == 'published' ? 'published' : 'unpubslihed'}}</span></td>
+													<td>{{item2.created_at}}</td>
+													<td>
+														<div class="btn-group btn-group-xs">
+															<a (click)="openModal('edit','Blog',item2.id, template)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-edit"></i></a>
+															<a (click)="openModal('delete','Blog',item2.id, template)"  data-toggle="tooltip" title="delete" class="btn btn-default"><i class="fa fa-trash"></i></a>
+														</div>
+													</td>
+												</tr>
+											</ng-template>
+										</tbody>
+									</table>
+								</div>
+									
+								<div class="col-md-12" *ngIf="bigTotalItems != 0">
+								  	<pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
+								              [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event" (pageChanged)="pageChanged($event)">
+								 	</pagination>
+								</div>
+							</div>
+						</div>
+					</div> 
+					<div class="tab-pane fade" id="portfolio">
 						<div class="widget">
 							<div class="widget-header transparent">
 								<div class="additional-btn">
@@ -156,72 +137,6 @@
 														<div class="btn-group btn-group-xs">
 															<a (click)="openModal('edit','Portfolio',item.id, template)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-edit"></i></a>
 															<a (click)="openModal('delete','Portfolio',item.id, template)"  data-toggle="tooltip" title="delete" class="btn btn-default"><i class="fa fa-trash"></i></a>
-														</div>
-													</td>
-												</tr>
-											</ng-template>
-										</tbody>
-									</table>
-								</div>
-									
-								<div class="col-md-12" *ngIf="bigTotalItems != 0">
-								  	<pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
-								              [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event" (pageChanged)="pageChanged($event)">
-								 	</pagination>
-								</div>
-							</div>
-						</div>
-					</div> 
-					<div class="tab-pane fade" id="blog">
-						<div class="widget">
-							<div class="widget-header transparent">
-								<div class="additional-btn">
-									<a href="#" (click)="refresh()" class="hidden reload"><i class="icon-ccw-1"></i></a>
-									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
-								</div>
-							</div>
-							<div class="widget-content">
-								<div class="data-table-toolbar">
-									<div class="row">
-										<div class="col-md-4">
-											<input type="text" (keyup)="search(key2.value)" #key2 class="form-control" placeholder="Search...">
-										</div>
-										<div class="col-md-8">
-											<div class="toolbar-btn-action">
-												<a class="btn btn-success" (click)="openModal('post','Blog', '', template)"><i class="fa fa-plus-circle"></i> Add new</a>
-											</div>
-										</div>
-									</div>
-								</div>
-									
-								<div class="table-responsive">
-									<table data-sortable class="table table-hover table-striped">
-										<thead>
-											<tr>
-												<th>No</th>
-												<th>Title</th>
-												<th>Body</th>
-												<th>Status</th>
-												<th>Date Created</th>
-												<th data-sortable="false">Action</th>
-											</tr>
-										</thead>
-										
-										<tbody>
-											<tr *ngIf="bigTotalItems == 0 else mylaman2">
-												<td colspan="7"><h4 class="text-center">No Records Found.</h4></td>
-											</tr>
-											<ng-template #mylaman2>
-												<tr *ngFor="let item2 of post">
-													<td>{{item2.id}}</td>
-													<td><strong>{{item2.title}}</strong></td>
-													<td>{{item2.body}}</td>
-													<td><span class="label label-success">{{item2.status == 'published' ? 'published' : 'unpubslihed'}}</span></td>
-													<td>{{item2.created_at}}</td>
-													<td>
-														<div class="btn-group btn-group-xs">
-															<a (click)="openModal('edit','Blog',item2.id, template)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-edit"></i></a>
-															<a (click)="openModal('delete','Blog',item2.id, template)"  data-toggle="tooltip" title="delete" class="btn btn-default"><i class="fa fa-trash"></i></a>
 														</div>
 													</td>
 												</tr>

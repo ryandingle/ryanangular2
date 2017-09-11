@@ -6,6 +6,7 @@ export class PortfolioModel {
 	description: any;
 	link: any;
 	image: any;
+	categories: any;
 	status: any;
 	created_at: any;
 	updated_at: any;
