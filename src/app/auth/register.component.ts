@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   public errors: Errors[];
 
   ngOnInit() {
-    this.pace.removePace();
+    this.errors = [];
     this.createForm();
   }
 

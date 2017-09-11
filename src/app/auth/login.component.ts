@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
   public users: UserModel;
 
   ngOnInit() {
+    this.errors = [];
     this.createForm();
   }
 
