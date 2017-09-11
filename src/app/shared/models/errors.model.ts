@@ -3,6 +3,7 @@ export class Errors {
 	name: any;
 	email: any;
 	success: any;
+	system: any;
 	password: any;
 	credentials: any;
 	password_confirmation: any;
