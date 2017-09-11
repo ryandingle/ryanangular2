@@ -8,7 +8,7 @@ export class SiteService {
 
     constructor(private http: Http) { }
 
-    private url = 'http://localhost/portfolioapi/api/v1';
+    private url       = 'http://ryandingle.co,nf/api/v1';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     getSite(): Promise<SiteModel[]>{

@@ -8,7 +8,8 @@ export class TagService {
 
     constructor(private http: Http) { }
 
-    private url = 'http://localhost/portfolioapi/api/v1';
+
+    private url       = 'http://ryandingle.co,nf/api/v1';
     private headers = new Headers({'Accept': 'application/json'});
 
     list(): Promise<TagModel[]>{

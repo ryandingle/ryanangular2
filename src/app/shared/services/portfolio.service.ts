@@ -9,7 +9,7 @@ export class PortfolioService {
 
     constructor(private http: Http) { }
 
-    private url = 'http://localhost/portfolioapi/api/v1';
+    private url       = 'http://ryandingle.co,nf/api/v1';
     private headers = new Headers({'Accept': 'application/json'});
     //private postHeader = null;//new Headers({'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'});
 
