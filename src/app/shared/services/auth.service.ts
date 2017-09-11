@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   private islogin   = localStorage.getItem('token') ? true : false;
-  private url       = 'http://ryandingle.co,nf/api/v1';
+  private url       = 'http://ryandingle.co.nf/api/v1';
   private headers   = new Headers({'Accept': 'application/json'});
 
   login(data: any): Promise<UserModel>{
