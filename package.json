@@ -1,17 +1,14 @@
 {
-  "name": "angular-cli-heroku",
-  "version": "0.0.0",
+  "name": "portfolio",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
+    "start": "ng serve",
     "build": "ng build",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "start": "node server.js",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "postinstall": "ng build --aot -prod",
-    "deploy": "git push origin master && git push heroku master"
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -33,7 +30,11 @@
     "isotope-layout": "^3.0.4",
     "jquery": "^3.2.1",
     "ng-selectize": "^1.0.11",
+    "ng2-awesome-disqus": "^1.1.1",
+    "ng2-ckeditor": "^1.1.9",
     "ngx-bootstrap": "^1.9.3",
+    "ngx-sharebuttons": "^3.0.0",
+    "notify-angular": "^2.0.2",
     "rxjs": "^5.4.3",
     "selectize": "^0.12.4",
     "typescript": "^2.3.4",
@@ -55,8 +56,5 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.3.0",
     "tslint": "~5.5.0"
-  },
-  "engines": {
-    "node": "8.2.1"
   }
 }

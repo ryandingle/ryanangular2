@@ -7,7 +7,11 @@ import { SharedModule, PaceService } from '../shared';
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    data: {
+      page: 'home',
+      title: 'Ryan Dingle - Full stack Web Developer'
+    }
   }
 ]);
 

@@ -1,3 +1,161 @@
-<p>
-  meta works!
-</p>
+<div class="content-page" style="min-height: 600px">
+	<notify></notify>
+    <div class="content">
+    	<div class="page-heading">
+            <h1><i class="fa fa-info-circle"></i> Site Meta</h1>
+        </div>
+		<div class="row">
+			<div class="container">
+				<div class="widget">
+					<div class="widget-header transparent">
+						<h2>Site Meta Identity</h2>
+						<div class="additional-btn">
+							<a (click)="ngOnInit()" class="hidden reload"><i class="icon-ccw-1"></i></a>
+							<a class="widget-toggle"><i class="icon-down-open-2"></i></a>
+						</div>
+					</div>
+					<div class="widget-content">
+						<div class="data-table-toolbar">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="toolbar-btn-action">
+										<a class="btn btn-success" (click)="show()" *ngIf="showForm == 0"><i class="fa fa-pencil"></i> Change Info</a>
+										<a class="btn btn-info" (click)="hide()" *ngIf="showForm == 1"><i class="fa fa-arrow-left"></i> Cancel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="table-responsive" *ngIf="showForm == 0 else siteform">
+							<table width="100%" class="text-left">
+								<tr>
+									<td>Title:</td>
+									<td><h2>{{sitedata?.title}}</h2></td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+									<td><h2>{{sitedata?.email}}</h2></td>
+								</tr>
+								<tr>
+									<td>Tagline:</td>
+									<td><h2>{{sitedata?.tagline}}</h2></td>
+								</tr>
+								<tr>
+									<td>Description:</td>
+									<td><h2>{{sitedata?.description}}</h2></td>
+								</tr>
+								<tr>
+									<td>Contact No.:</td>
+									<td><h2>{{sitedata?.contact}}</h2></td>
+								</tr>
+								<tr>
+									<td>Site Owner:</td>
+									<td><h2>{{sitedata?.owner}}</h2></td>
+								</tr>
+								<tr>
+									<td>Location:</td>
+									<td><h2>{{sitedata?.location}}</h2></td>
+								</tr>
+								<tr>
+									<td>Website Meta Image:</td>
+									<td class="text-center">
+										<div class="col-md-3 col-md-offset-1">
+											<img class="img-responsive rounded-image" src="{{sitedata?.image}}">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>Website Logo:</td>
+									<td class="text-center">
+										<div class="col-md-3 col-md-offset-1">
+											<div *ngIf="sitedata.logo else nologo">
+												<img class="img-responsive rounded-image" src="{{sitedata?.logo}}">
+											</div>
+											<ng-template #nologo>
+												No Logo Uploaded.
+											</ng-template>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<ng-template #siteform>
+						<div class="col-md-12">
+							<br>
+							<form [formGroup]="form" (submit)="save()">
+								<div class="form-group {{form.controls['title'].errors && (form.controls['title'].touched || form.controls['title'].dirty) ? 'has-error' : ''}}">
+									<label>Title</label>
+									<input type="text" class="form-control" formControlName="title">
+									<small *ngIf="form.controls['title'].errors && (form.controls['title'].touched || form.controls['title'].dirty)">
+										<span class="help-block" *ngIf="form.controls['title'].hasError('required')">The title field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['email'].errors && (form.controls['email'].touched || form.controls['email'].dirty) ? 'has-error' : ''}}">
+									<label>Email</label>
+									<input type="text" class="form-control" formControlName="email">
+									<small *ngIf="form.controls['email'].errors && (form.controls['email'].touched || form.controls['email'].dirty)">
+										<span class="help-block" *ngIf="form.controls['email'].hasError('required')">The email field is required.</span>
+										<span class="help-block" *ngIf="form.controls['email'].hasError('email')">The email field is invalid.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['tagline'].errors && (form.controls['tagline'].touched || form.controls['tagline'].dirty) ? 'has-error' : ''}}">
+									<label>Tagline</label>
+									<textarea class="form-control" formControlName="tagline"></textarea>
+									<small *ngIf="form.controls['tagline'].errors && (form.controls['tagline'].touched || form.controls['tagline'].dirty)">
+										<span class="help-block" *ngIf="form.controls['tagline'].hasError('required')">The tagline field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['description'].errors && (form.controls['description'].touched || form.controls['description'].dirty) ? 'has-error' : ''}}">
+									<label>Description</label>
+									<textarea class="form-control" formControlName="description"></textarea>
+									<small *ngIf="form.controls['description'].errors && (form.controls['description'].touched || form.controls['description'].dirty)">
+										<span class="help-block" *ngIf="form.controls['description'].hasError('required')">The description field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['contact'].errors && (form.controls['contact'].touched || form.controls['contact'].dirty) ? 'has-error' : ''}}">
+									<label>Contact No.</label>
+									<input type="text" class="form-control" formControlName="contact">
+									<small *ngIf="form.controls['contact'].errors && (form.controls['contact'].touched || form.controls['contact'].dirty)">
+										<span class="help-block" *ngIf="form.controls['contact'].hasError('required')">The contact field is required.</span>
+										<span class="help-block" *ngIf="form.controls['contact'].hasError('pattern')">The contact field is not a number.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['owner'].errors && (form.controls['owner'].touched || form.controls['owner'].dirty) ? 'has-error' : ''}}">
+									<label>Owner</label>
+									<input type="text" class="form-control" formControlName="owner">
+									<small *ngIf="form.controls['owner'].errors && (form.controls['owner'].touched || form.controls['owner'].dirty)">
+										<span class="help-block" *ngIf="form.controls['owner'].hasError('required')">The owner field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{form.controls['location'].errors && (form.controls['location'].touched || form.controls['location'].dirty) ? 'has-error' : ''}}">
+									<label>Location</label>
+									<input type="text" class="form-control" formControlName="location">
+									<small *ngIf="form.controls['location'].errors && (form.controls['location'].touched || form.controls['location'].dirty)">
+										<span class="help-block" *ngIf="form.controls['location'].hasError('required')">The location field is required.</span>
+									</small>
+								</div>
+								<div class="form-group">
+									<label>Image</label>
+									<input type="file" class="form-control" formControlName="image"  (change)="getFile($event)">
+									<small *ngIf="">
+										<span class="help-block" *ngIf=""></span>
+									</small>
+								</div>
+								<div class="form-group">
+									<label>Logo</label>
+									<input type="file" class="form-control" formControlName="logo"  (change)="getFile2($event)">
+									<small *ngIf="">
+										<span class="help-block" *ngIf=""></span>
+									</small>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary">Save <i class="fa fa-save"></i></button>
+								</div>
+							</form>
+						</div>
+					</ng-template>
+				</div>
+			</div>
+		</div>	
+    </div>
+</div>

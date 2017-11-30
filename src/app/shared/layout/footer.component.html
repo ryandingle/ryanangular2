@@ -1,16 +1,15 @@
-<footer *ngIf="login == false else footeradmin">
-  <div class="container">
+<footer *ngIf="login == false else footeradmin" style="margin-top: 0px;">
+  <div class="container" style="width: 90%">
       <div class="row">
-          <div class="col-sm-4" *ngFor="let item of sitedata">
-              <a routerLink="/"> 
-                  <!-- <img src="assets/img/logo.png" alt="Coco Frontend Template" class="footer-logo"> -->
-                  <h1>Ryan Dingle</h1> 
+          <div class="col-sm-4" *ngFor="let item2 of sitedata">
+              <a routerLink="/">
+                  <img src="{{item2.logo}}" alt="{{item2.title}}" class="footer-logo" *ngIf="item2.logo else nologo">
+                  <ng-template #nologo>
+                      <p class="site-title">{{item2.title}}</p>
+                  </ng-template>
               </a>
-              <h5>Full Stack Developer</h5>
-              
+              <h5 class="font-white">{{item2.tagline}}</h5>
           </div>
-
-
           <div class="col-sm-4">
               <h4>CONTACT US</h4>
               <ul class="list-unstyled company-info" *ngFor="let item2 of sitedata">
@@ -20,13 +19,24 @@
                   <li><i class="fa fa-bell-o"></i> Monday - Friday: <strong>8:00 am - 7:00 pm</strong><br>Saturday - Sunday: <strong>Closed</strong></li>
               </ul>
           </div>
-          
           <div class="col-sm-4 hidden-xs">
-              <h4>SOCIAL STREAM</h4>
+              <h4>QUICK LINKS</h4>
               <ul class="list-unstyled social-stream">
-                  <li><i class="fa fa-twitter"></i> We just released an awesome frontend template for our coco template. Come on and check it out! - <a href="http://goo.gl/ylVWzR">http://goo.gl/ylVWzR</a><br><span class="text-default text-sm">Oct 20</span></li>
-                  <li><i class="fa fa-twitter"></i> Our template is going popular. Don't miss it!<br><span class="text-default text-sm">Oct 19</span></li>
-                  <li><i class="fa fa-facebook"></i> World is becoming a crazy place. Try to avoid toxic materials.<br><span class="text-default text-sm">Oct 19</span></li>
+                  <li>
+                    <a routerLink="/">Home</a>
+                  </li>
+                  <li>
+                    <a routerLink="/works">Portfolio</a>
+                  </li>
+                  <li>
+                    <a routerLink="/blog">Blog</a>
+                  </li>
+                  <li>
+                    <a routerLink="/about">About</a>
+                  </li>
+                  <li>
+                    <a routerLink="/contact">Contact</a>
+                  </li>
               </ul>
           </div>
       </div>
@@ -36,8 +46,8 @@
               <p>Copyright &copy; {{ today | date: 'yyyy' }} by <a routerLink="/">{{ item3.owner }}</a></p> 
           </div>
           <div class="col-sm-6 text-right">
-              <div class="social-links" *ngFor="let items of list">
-                    <a href="{{ items.url }}" target="__blank" class="btn btn-link">
+              <div class="social-links">
+                    <a *ngFor="let items of socialdata" href="{{ items.url }}" target="__blank">
                         <i class="fa fa-{{ (items.name=='facebook') ? 'facebook' : (items.name =='twitter') ? 'twitter': (items.name=='linkedin') ? 'linkedin' : '' }} fa-2"></i>
                     </a>
               </div>
@@ -47,13 +57,4 @@
 </footer>
 
 <ng-template #footeradmin>
- <!--  <footer *ngFor="let item of sitedata">
-      Copyright &copy; {{ today | date: 'yyyy' }} by <a routerLink="/" style="cursor: pointer">{{ item.owner }}</a>
-      <div class="footer-links pull-right">
-        <a routerLink="about" style="cursor: pointer">About</a>
-        <a routerLink="portfolio" style="cursor: pointer">Portfolio</a>
-        <a routerLink="blog" style="cursor: pointer">Blog</a>
-        <a routerLink="contact" style="cursor: pointer">Contact</a>
-      </div>
-  </footer> -->
 </ng-template> 

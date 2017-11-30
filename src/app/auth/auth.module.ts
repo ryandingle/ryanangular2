@@ -16,11 +16,19 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     path: 'auth/login',
     component: LoginComponent,
     canActivate: [NoAuthGuard],
+    data: {
+      page: 'login',
+      title: 'Ryan Dingle - Login'
+    }
   },
   {
     path: 'auth/register',
     component: RegisterComponent,
     canActivate: [NoAuthGuard],
+    data: {
+      page: 'register',
+      title: 'Ryan Dingle - Register'
+    }
   }
 ]);
 

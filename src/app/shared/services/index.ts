@@ -8,3 +8,5 @@ export * from './tag.service';
 export * from './user.service';
 export * from './auth.guard';
 export * from './noAuth.guard';
+export * from './alert.service';
+export * from './counter.service';

@@ -8,6 +8,7 @@ export class SiteModel {
     location: any;
     contact: any;
     image: any;
+    logo: any;
     social: any;
     created_at: any;
     updated_at: any;

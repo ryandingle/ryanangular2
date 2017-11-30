@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 import { SiteModel, SocialModel, UserModel } from '../../shared/models';
 import { AuthService } from '../../shared/services';
 
@@ -18,6 +18,11 @@ export class FooterComponent implements OnInit{
   socials: any[];
   login: any = false;
 
+  page: string = 'home';
+  headtitle: string;
+  status = this.auth.isLoggedIn();
+  users = UserModel;
+
   @Input() sitedata: SiteModel[];
   @Input() socialdata: SocialModel[];
 
@@ -25,10 +30,13 @@ export class FooterComponent implements OnInit{
 
   ngOnInit() {
     this.router.events.subscribe((res) => { 
-      this.location = this.router.url;
-      this.login = (this.location == '/auth/register' || this.location == '/auth/login' || this.location == '/' || this.location == '/about' || this.location == '/works' || this.location == '/contact' || this.location == '/blog') 
-    ? false 
-    : true;
+      this.status = this.auth.isLoggedIn();
+      this.users = this.auth.getUserToken();
+      if (res instanceof RoutesRecognized) {
+        let route = res.state.root.firstChild;
+        this.page = route.data.page;
+      }
+      this.login = (this.page == 'register' || this.page == 'login' || this.page == 'home' || this.page == 'about' || this.page == 'works' || this.page == 'contact' || this.page == 'blog' || this.page == 'blogdetail') ? false : true;
     });
   }
 

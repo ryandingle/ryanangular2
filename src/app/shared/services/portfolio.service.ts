@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
-import { PortfolioModel  }  from '../models';
+import { PortfolioModel, Errors  }  from '../models';
 import '../rxjs-operator';
 import { Observable }     from 'rxjs/Observable';
 
@@ -9,9 +9,8 @@ export class PortfolioService {
 
     constructor(private http: Http) { }
 
-  private url       = 'http://ryandingle.co.nf/api/v1';
+    private url       = 'http://portfolioapi.app/api/v1';
     private headers = new Headers({'Accept': 'application/json'});
-    //private postHeader = null;//new Headers({'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'});
 
     list(data: any): Promise<PortfolioModel[]>{
         return this.http.post(this.url+'/project', data ,{headers: this.headers})
@@ -27,6 +26,13 @@ export class PortfolioService {
             .catch(this.handleError);
     }
 
+    getRecentPost(): Promise<PortfolioModel[]>{
+      return this.http.get(this.url+'/project/recent-post', {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as PortfolioModel[])
+        .catch(this.handleError);
+    }
+
     edit(id: any): Promise<PortfolioModel>{
         return this.http.get(this.url+'/project/'+id+'/edit' ,{headers: this.headers})
             .toPromise()
@@ -34,24 +40,24 @@ export class PortfolioService {
             .catch(this.handleError);
     }
 
-    delete(id: any): Promise<PortfolioModel>{
+    delete(id: any): Promise<Errors>{
         return this.http.post(this.url+'/project/'+id+'/delete' ,{headers: this.headers})
             .toPromise()
-            .then(response => response.json() as PortfolioModel)
+            .then(response => response.json() as Errors)
             .catch(this.handleError);
     }
 
-    store(data: any): Promise<PortfolioModel>{
+    store(data: any): Promise<Errors>{
         return this.http.post(this.url+'/project/post', data ,{headers: this.headers})
             .toPromise()
-            .then(response => response.json() as PortfolioModel)
+            .then(response => response.json() as Errors)
             .catch(this.handleError);
     }
 
-    update(data: any, id: any): Promise<PortfolioModel>{
+    update(data: any, id: any): Promise<Errors>{
         return this.http.post(this.url+'/project/'+id+'/update', data ,{headers: this.headers})
             .toPromise()
-            .then(response => response.json() as PortfolioModel)
+            .then(response => response.json() as Errors)
             .catch(this.handleError);
     }
 

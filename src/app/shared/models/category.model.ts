@@ -6,4 +6,6 @@ export class CategoryModel {
 	status: any;
 	created_at: any;
 	updated_at: any;
+	total: any;
+	data: any;
 }

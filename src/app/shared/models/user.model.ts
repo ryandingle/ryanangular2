@@ -1,4 +1,6 @@
 export class UserModel {
+	user: any;
+	message: any;
 	id: any;
 	data: any;
 	name: any;

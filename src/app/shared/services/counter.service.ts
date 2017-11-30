@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
-import { LikeModel  }  from '../models';
+import { CounterModel  }  from '../models';
 import '../rxjs-operator';
 
 @Injectable()
-export class LikeService {
+export class CounterService {
 
     constructor(private http: Http) { }
 
     private url       = 'http://portfolioapi.app/api/v1';
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private headers = new Headers({'Accept': 'application/json'});
 
-    get(): Promise<LikeModel[]>{
-      return this.http.get(this.url+'/site', {headers: this.headers})
+    get(): Promise<CounterModel>{
+      return this.http.get(this.url+'/counters', {headers: this.headers})
         .toPromise()
-        .then(response => response.json() as LikeModel[])
+        .then(response => response.json() as CounterModel)
         .catch(this.handleError);
     }
 

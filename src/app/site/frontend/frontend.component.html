@@ -1,3 +1,48 @@
-<p>
-  frontend works!
-</p>
+<div class="content-page" style="min-height: 600px">
+	<!-- <notify></notify> -->
+    <div class="content">
+    	<div class="page-heading">
+            <h1><i class="fa fa-sitemap"></i> Frontend Management</h1>
+        </div>
+		<div class="row">
+			<div class="container">
+				<div class="container">
+					<ul class="nav nav-tabs nav-simple">
+					<li class="active">
+						<a (click)="setActive('home')" href="#home" data-toggle="tab"><b>Home</b></a>
+					</li>
+					<li class="">
+						<a (click)="setActive('portfolio')" href="#portfolio" data-toggle="tab"><b>Portfolio</b></a>
+					</li>
+					<li class="">
+						<a (click)="setActive('blog')" href="#blog" data-toggle="tab"><b>Blog</b></a>
+					</li>
+					<li class="">
+						<a (click)="setActive('about')" href="#about" data-toggle="tab"><b>About</b></a>
+					</li>
+					<li class="">
+						<a (click)="setActive('contact')" href="#contact" data-toggle="tab"><b>Contact</b></a>
+					</li>
+				</ul>
+				</div>
+				<div class="tab-content" style="background: #ffffff">
+					<div class="tab-pane fade active in" id="home">
+						home
+					</div> 
+					<div class="tab-pane fade" id="portfolio">
+						portfolio
+					</div> 
+					<div class="tab-pane fade" id="blog">
+						blog
+					</div> 
+					<div class="tab-pane fade" id="about">
+						about
+					</div> 
+					<div class="tab-pane fade" id="contact">
+						contact
+					</div> 
+				</div> 
+			</div>
+		</div>	
+    </div>
+</div>

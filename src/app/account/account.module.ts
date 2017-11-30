@@ -3,13 +3,23 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule }          from '@angular/forms';
 
 import { AccountComponent } from './account.component';
-import { SharedModule,AuthGuard } from '../shared'; 
+import { 
+  SharedModule,
+  AuthGuard, 
+  UserService,
+  AuthService 
+} from '../shared'; 
+import { NotifyService, NotifyModule } from 'notify-angular';
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'account',
     component: AccountComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: {
+      page: 'account',
+      title: 'Ryan Dingle - My Account'
+    }
   }
 ]);
 
@@ -18,11 +28,17 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     Routing,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotifyModule
   ],
   declarations: [
     AccountComponent
   ],
-  providers: [AuthGuard]
+  providers: [
+    AuthGuard, 
+    AuthService,
+    NotifyService, 
+    UserService
+  ]
 })
 export class AccountModule {}

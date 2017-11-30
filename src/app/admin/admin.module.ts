@@ -4,21 +4,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationModule } from 'ngx-bootstrap';
 import { AdminComponent } from './admin.component';
 import {  SharedModule } from '../shared';
+import { CKEditorModule } from 'ng2-ckeditor';
 import {
   SiteService,
   PortfolioService,
   BlogService,
   TagService,
   CategoryService,
-  AuthGuard
+  AuthGuard,
+  AlertService,
+  CounterService
 } from '../shared/services';
 import {NgSelectizeModule} from 'ng-selectize';
+import { NotifyModule, NotifyService } from 'notify-angular';
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
+    data: {
+      page: 'admin',
+      title: 'Ryan Dingle - Admin Dashboard'
+    }
   }
 ]);
 
@@ -29,7 +37,9 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     FormsModule,
     ReactiveFormsModule,
     PaginationModule.forRoot(),
-    NgSelectizeModule
+    NgSelectizeModule,
+    NotifyModule,
+    CKEditorModule
   ],
   declarations: [
     AdminComponent,
@@ -43,7 +53,10 @@ const Routing: ModuleWithProviders = RouterModule.forChild([
     BlogService,
     TagService,
     CategoryService,
-    AuthGuard 
+    AuthGuard,
+    NotifyService,
+    AlertService,
+    CounterService 
   ],
   entryComponents: [
   ]

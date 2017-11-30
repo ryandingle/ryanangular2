@@ -1,24 +1,50 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { PaginationModule } from 'ngx-bootstrap';
 import { WorksComponent } from './works.component';
-import { SharedModule, PaceService } from '../shared'; 
+import { WorksDetailComponent } from './works-detail.component';
+import { DisqusModule } from "ng2-awesome-disqus";
+import { ShareButtonsModule } from 'ngx-sharebuttons';
+import { 
+  SharedModule, 
+  PaceService, 
+  PortfolioService 
+} from '../shared'; 
 
 const Routing: ModuleWithProviders = RouterModule.forChild([
   {
     path: 'works',
-    component: WorksComponent
+    component: WorksComponent,
+    data: {
+      page: 'works',
+      title: 'Ryan Dingle - Works/Portfolio'
+    }
+  },
+  {
+    path: 'works/:id',
+    component: WorksDetailComponent,
+    data: {
+      page: 'works',
+      title: 'Ryan Dingle - Work Details'
+    }
   }
 ]);
 
 @NgModule({
   imports: [
     Routing,
-    SharedModule
+    SharedModule,
+    PaginationModule.forRoot(),
+    DisqusModule,
+    ShareButtonsModule.forRoot()
   ],
   declarations: [
-    WorksComponent
+    WorksComponent,
+    WorksDetailComponent
   ],
-  providers: [PaceService]
+  providers: [
+    PaceService, 
+    PortfolioService
+  ]
 })
 export class WorksModule {}

@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   private islogin   = localStorage.getItem('token') ? true : false;
-  private url       = 'http://ryandingle.co.nf/api/v1';
+  private url       = 'http://portfolioapi.app/api/v1';
   private headers   = new Headers({'Accept': 'application/json'});
 
   login(data: any): Promise<UserModel>{
@@ -67,6 +67,10 @@ export class AuthService {
   setLogin(user, token) {
     this.islogin = true;
     localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  updateUserToken(user) {
     localStorage.setItem('user', JSON.stringify(user));
   }
 

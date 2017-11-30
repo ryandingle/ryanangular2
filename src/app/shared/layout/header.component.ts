@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
+import { Router, RoutesRecognized } from '@angular/router';
 import { 
   SiteModel, 
   UserModel,
@@ -7,6 +7,7 @@ import {
 } from '../../shared/models';
 import { 
   AuthService,
+  PaceService
 } from '../../shared/services';
 
 @Component({
@@ -17,10 +18,12 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private auth: AuthService
+    private auth: AuthService,
+    private title: PaceService
   ){ }
 
   page: string = 'home';
+  headtitle: string;
   location: any;
   login: any = false;
   status = this.auth.isLoggedIn();
@@ -31,11 +34,17 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe((res) => { 
-      this.location = this.router.url;
-      this.page = (this.location.replace('/','') != '') ? this.location.replace('/','') : 'home'; 
-      this.login = (this.location == '/auth/register' || this.location == '/auth/login' || this.page == 'home' || this.page == 'about' || this.page == 'works' || this.page == 'contact' || this.page == 'blog') ? false : true;
       this.status = this.auth.isLoggedIn();
       this.users = this.auth.getUserToken();
+      if (res instanceof RoutesRecognized) {
+        let route = res.state.root.firstChild;
+        this.page = route.data.page;
+        this.headtitle = route.data.title;
+      }
+
+      if(this.page !== 'blogdetail') this.title.setTitle(this.headtitle);
+
+      this.login = (this.page == 'register' || this.page == 'login' || this.page == 'home' || this.page == 'about' || this.page == 'works' || this.page == 'contact' || this.page == 'blog' || this.page == 'blogdetail') ? false : true;
     });
   }
 

@@ -8,13 +8,20 @@ export class UserService {
 
     constructor(private http: Http) { }
 
-  private url       = 'http://ryandingle.co.nf/api/v1';
-    private headers = new Headers({'Content-Type': 'application/json'});
+    private url       = 'http://portfolioapi.app/api/v1';
+    private headers   = new Headers({'Accept': 'application/json'});
 
-    get(): Promise<UserModel[]>{
-      return this.http.get(this.url+'/blog', {headers: this.headers})
+    get(id): Promise<UserModel>{
+      return this.http.get(this.url+'/user/'+id+'/get', {headers: this.headers})
         .toPromise()
-        .then(response => response.json() as UserModel[])
+        .then(response => response.json() as UserModel)
+        .catch(this.handleError);
+    }
+
+    update(id, data): Promise<UserModel>{
+      return this.http.post(this.url+'/user/'+id+'/update', data, {headers: this.headers})
+        .toPromise()
+        .then(response => response.json() as UserModel)
         .catch(this.handleError);
     }
 

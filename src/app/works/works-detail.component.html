@@ -2,33 +2,33 @@
 <section class="bg-white-1">
 	<div class="container" style="width: 90%;min-height: 600px">
 		<div class="row">
-			<article *ngIf="post else nodata">
+			<article *ngIf="projects else nodata">
 				<div class="col-sm-8 pull-left">	
 					<article class="post">
 						<header class="entry-header">
-							<h1 class="entry-title"><a routerLink="/blog/{{post?.slug}}" rel="bookmark">{{post?.title}}</a></h1>
+							<h1 class="entry-title"><a routerLink="/works/{{projects?.id}}" rel="bookmark">{{projects?.title}}</a></h1>
 							<div class="entry-meta"> 
-								Published on {{post?.created_at | date}} | Category | Tag	
+								Published on {{projects?.created_at | date}} | <b><i class="fa fa-link"></i> <a href="{{projects?.link}}" target="_blank">{{projects.link}}</a></b>
 							</div> 
 						</header>
 						<br> 
 						<div class="entry-content"> 
-							<p><img alt="{{post?.title}}" src="{{post?.image}}"></p>
-							<div class="body" [innerHTML]="post?.body"></div>
+							<p><img alt="{{projects?.title}}" class="img-responsive" src="{{projects?.image}}"></p>
+							<div class="body" [innerHTML]="projects?.description"></div>
 						</div> 
 					</article>
 				</div> 
 				<div class="col-md-4 pull-right border-left-black">
-					<h3>Recent post</h3>
+					<h3>Recent Works</h3>
 					<ul class="no-bullets">
-						<li *ngFor="let item of recentPost"><a (click)="navigate(item.slug)">{{item.title}}</a></li>
+						<li *ngFor="let item of recentWorks"><a (click)="navigate(item.id)">{{item.title}}</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-8">
 					<share-buttons></share-buttons>
 				</div>
 				<div class="col-sm-8">
-					<disqus [shortname]="ryandingle-com" [identifier]="pageId" [categoryId]="post?.slug" [language]="'en'"></disqus>
+					<disqus [shortname]="ryandingle-com" [identifier]="pageId" [categoryId]="projects?.id" [language]="'en'"></disqus>
 				</div>
 			</article>
 			<ng-template #nodata>

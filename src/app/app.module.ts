@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from 'ngx-bootstrap';
 import { AppComponent } from './app.component';
+import { ShareButtonsModule } from 'ngx-sharebuttons';
 import {
   SharedModule,
   FooterComponent,
@@ -17,7 +18,6 @@ import { ContactModule } from './contact/contact.module';
 import { WorksModule } from './works/works.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
-import { ProfileModule } from './profile/profile.module';
 import { AccountModule } from './account/account.module';
 import { PaceService } from './shared/services';
 import { SiteModule } from './site/site.module';
@@ -43,12 +43,12 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: fal
     WorksModule,
     AdminModule,
     AuthModule,
-    ProfileModule,
     SiteModule,
     AccountModule,
     AppsModule,
     rootRouting,
     ModalModule.forRoot(),
+    ShareButtonsModule.forRoot(),
   ],
   providers: [Title, PaceService],
   bootstrap: [AppComponent]

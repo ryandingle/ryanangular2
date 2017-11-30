@@ -1,4 +1,4 @@
- <section class="hero-banner">
+ <section class="hero-banner bg-white-1">
     <div class="container text-center">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
@@ -12,14 +12,13 @@
         </div>
         <div class="row">
             <div class="col-sm-4 col-sm-offset-4 text-center contact-phone text-success" *ngFor="let item1 of sitedata">
-                <span class="text-lg text-primary">MOBILE NO</span><br><i class="icon-phone4"></i>
+                <span class="text-lg text-primary">MOBILE NO</span><br><i class="fa fa-mobile"></i>
                 {{item1.contact}}
             </div>
         </div>
     </div>
 </section>
-
-<section id="contact-form" class="contact-form block">
+<section id="contact-form bg-white-1" class="contact-form block">
     <div class="container" style="width: 90%">
         <div class="row">
             <div class="col-sm-6">
@@ -58,7 +57,7 @@
                             <h4>PHILIPPINE ADDRESS</h4>
                             <b>ADDRESS</b>
                             <p>{{ item.location }}</p>
-                            <b>PHONE</b>
+                            <b>MOILE/PHONE</b>
                             <p>{{ item.contact }}</p>
                         </div>
                     </div>

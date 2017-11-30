@@ -10,3 +10,4 @@ export * from './tag.model';
 export * from './errors.model';
 export * from './selectize.model';
 export * from './token.model';
+export * from './counter.model';

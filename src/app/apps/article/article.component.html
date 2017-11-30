@@ -1,4 +1,5 @@
 <div class="content-page" style="min-height: 600px">
+	<notify></notify>
     <div class="content">
     	<div class="page-heading">
             <h1><i class="fa fa-comments-o"></i> Article</h1>
@@ -8,19 +9,19 @@
 				<div class="container">
 					<ul class="nav nav-tabs nav-simple">
 					<li class="active">
-						<a (click)="setActive('blog')" href="#blog" data-toggle="tab"><i class="fa fa-list"></i> Blog List</a>
+						<a (click)="setActive('blog')" href="#blog" data-toggle="tab"><b>Blog</b></a>
 					</li>
 					<li class="">
-						<a (click)="setActive('category')" href="#category" data-toggle="tab"><i class="fa fa-list"></i> Category List</a>
+						<a (click)="setActive('category')" href="#category" data-toggle="tab"><b>Category</b></a>
 					</li>
 					<li class="">
-						<a (click)="setActive('tag')" href="#tag" data-toggle="tab"><i class="fa fa-list"></i> Tag List</a>
+						<a (click)="setActive('tag')" href="#tag" data-toggle="tab"><b>Tag</b></a>
 					</li>
 				</ul>
 				</div>
 				<div class="tab-content" style="background: #ffffff">
 					<div class="tab-pane fade active in" id="blog">
-						<div class="widget">
+						<div class="widget" *ngIf="showForm == 0 else blogtemplate">
 							<div class="widget-header transparent">
 								<div class="additional-btn">
 									<a href="#" (click)="refresh()" class="hidden reload"><i class="icon-ccw-1"></i></a>
@@ -35,7 +36,7 @@
 										</div>
 										<div class="col-md-8">
 											<div class="toolbar-btn-action">
-												<a class="btn btn-success" (click)="openModal('post','Blog', '', template)"><i class="fa fa-plus-circle"></i> Add new</a>
+												<a class="btn btn-success" (click)="create('post','Blog', '')"><i class="fa fa-plus-circle"></i> Add new</a>
 											</div>
 										</div>
 									</div>
@@ -50,25 +51,25 @@
 												<th>Body</th>
 												<th>Status</th>
 												<th>Date Created</th>
-												<th data-sortable="false">Action</th>
+												<th data-sortable="false" width="10%">Action</th>
 											</tr>
 										</thead>
 										
 										<tbody>
-											<tr *ngIf="bigTotalItems == 0 else mylaman2">
+											<tr *ngIf="bigTotalItems == 0 else mylaman">
 												<td colspan="7"><h4 class="text-center">No Records Found.</h4></td>
 											</tr>
-											<ng-template #mylaman2>
+											<ng-template #mylaman>
 												<tr *ngFor="let item2 of post">
 													<td>{{item2.id}}</td>
 													<td><strong>{{item2.title}}</strong></td>
-													<td>{{item2.body}}</td>
+													<td>{{item2.body|slice:0:100}} ...</td>
 													<td><span class="label label-success">{{item2.status == 'published' ? 'published' : 'unpubslihed'}}</span></td>
 													<td>{{item2.created_at}}</td>
 													<td>
 														<div class="btn-group btn-group-xs">
-															<a (click)="openModal('edit','Blog',item2.id, template)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-edit"></i></a>
-															<a (click)="openModal('delete','Blog',item2.id, template)"  data-toggle="tooltip" title="delete" class="btn btn-default"><i class="fa fa-trash"></i></a>
+															<a (click)="create('edit','Blog',item2.id)" data-toggle="tooltip" class="btn btn-default"><i class="fa fa-edit"></i></a>
+															<a (click)="deleteModal('Blog',item2.id, deletemodal)"  data-toggle="tooltip" class="btn btn-default"><i class="fa fa-trash"></i></a>
 														</div>
 													</td>
 												</tr>
@@ -85,8 +86,8 @@
 							</div>
 						</div>
 					</div> 
-					<div class="tab-pane fade" id="portfolio">
-						<div class="widget">
+					<div class="tab-pane fade" id="category">
+						<div class="widget" *ngIf="showForm == 0 else tagcategory">
 							<div class="widget-header transparent">
 								<div class="additional-btn">
 									<a href="#" (click)="refresh()" class="hidden reload"><i class="icon-ccw-1"></i></a>
@@ -101,7 +102,7 @@
 										</div>
 										<div class="col-md-8">
 											<div class="toolbar-btn-action">
-												<a class="btn btn-success" (click)="openModal('post','Portfolio', '', template)"><i class="fa fa-plus-circle"></i> Add new</a>
+												<a class="btn btn-success" (click)="create('post','Category', '')"><i class="fa fa-plus-circle"></i> Add new</a>
 											</div>
 										</div>
 									</div>
@@ -114,7 +115,6 @@
 												<th>No</th>
 												<th>Title</th>
 												<th>Description</th>
-												<th>Link</th>
 												<th>Status</th>
 												<th>Date Created</th>
 												<th data-sortable="false">Action</th>
@@ -122,21 +122,86 @@
 										</thead>
 										
 										<tbody>
-											<tr *ngIf="bigTotalItems == 0 else mylaman">
+											<tr *ngIf="bigTotalItems == 0 else mylaman2">
 												<td colspan="7"><h4 class="text-center">No Records Found.</h4></td>
 											</tr>
-											<ng-template #mylaman>
-												<tr *ngFor="let item of project">
-													<td>{{item.id}}</td>
-													<td><strong>{{item.title}}</strong></td>
-													<td>{{item.description}}</td>
-													<td><i class="fa fa-link"></i> <a href="{{item.link}}" target="__blank">{{item.link}}</a></td>
-													<td><span class="label label-success">{{item.status == 'published' ? 'Published' : 'Unpubslihed'}}</span></td>
-													<td>{{item.created_at}}</td>
+											<ng-template #mylaman2>
+												<tr *ngFor="let cat of categories">
+													<td>{{cat.id}}</td>
+													<td><strong>{{cat.title}}</strong></td>
+													<td>{{cat.description}}</td>
+													<td><span class="label label-success">{{cat.status == 'published' ? 'Published' : 'Unpublished'}}</span></td>
+													<td>{{cat.created_at}}</td>
 													<td>
 														<div class="btn-group btn-group-xs">
-															<a (click)="openModal('edit','Portfolio',item.id, template)" data-toggle="tooltip" title="Edit" class="btn btn-default"><i class="fa fa-edit"></i></a>
-															<a (click)="openModal('delete','Portfolio',item.id, template)"  data-toggle="tooltip" title="delete" class="btn btn-default"><i class="fa fa-trash"></i></a>
+															<a (click)="create('edit','Category',cat.id)" data-toggle="tooltip" class="btn btn-default"><i class="fa fa-edit"></i></a>
+															<a (click)="deleteModal('Category',cat.id, deletemodal)"  data-toggle="tooltip" class="btn btn-default"><i class="fa fa-trash"></i></a>
+														</div>
+													</td>
+												</tr>
+											</ng-template>
+										</tbody>
+									</table>
+								</div>
+									
+								<div class="col-md-12" *ngIf="bigTotalItems != 0">
+								  	<pagination [totalItems]="bigTotalItems" [(ngModel)]="bigCurrentPage" [maxSize]="maxSize" class="pagination-sm"
+								              [boundaryLinks]="true" [rotate]="false" (numPages)="numPages = $event" (pageChanged)="pageChanged($event)">
+								 	</pagination>
+								</div>
+							</div>
+						</div>
+					</div> 
+					<div class="tab-pane fade" id="tag">
+						<div class="widget" *ngIf="showForm == 0 else tagcategory">
+							<div class="widget-header transparent">
+								<div class="additional-btn">
+									<a href="#" (click)="refresh()" class="hidden reload"><i class="icon-ccw-1"></i></a>
+									<a href="#" class="widget-toggle"><i class="icon-down-open-2"></i></a>
+								</div>
+							</div>
+							<div class="widget-content">
+								<div class="data-table-toolbar">
+									<div class="row">
+										<div class="col-md-4">
+											<input type="text" (keyup)="search(key1.value)" #key1 class="form-control" placeholder="Search...">
+										</div>
+										<div class="col-md-8">
+											<div class="toolbar-btn-action">
+												<a class="btn btn-success" (click)="create('post','Tag', '')"><i class="fa fa-plus-circle"></i> Add new</a>
+											</div>
+										</div>
+									</div>
+								</div>
+									
+								<div class="table-responsive">
+									<table data-sortable class="table table-hover table-striped">
+										<thead>
+											<tr>
+												<th>No</th>
+												<th>Title</th>
+												<th>Description</th>
+												<th>Status</th>
+												<th>Date Created</th>
+												<th data-sortable="false">Action</th>
+											</tr>
+										</thead>
+										
+										<tbody>
+											<tr *ngIf="bigTotalItems == 0 else mylaman3">
+												<td colspan="7"><h4 class="text-center">No Records Found.</h4></td>
+											</tr>
+											<ng-template #mylaman3>
+												<tr *ngFor="let item3 of tags">
+													<td>{{item3.id}}</td>
+													<td><strong>{{item3.title}}</strong></td>
+													<td>{{item3.description}}</td>
+													<td><span class="label label-success">{{item3.status == 'published' ? 'Published' : 'Unpublished'}}</span></td>
+													<td>{{item3.created_at}}</td>
+													<td>
+														<div class="btn-group btn-group-xs">
+															<a (click)="create('edit', 'Tag', item3.id)" data-toggle="tooltip" class="btn btn-default"><i class="fa fa-edit"></i></a>
+															<a (click)="deleteModal('Tag',item3.id, deletemodal)"  data-toggle="tooltip" class="btn btn-default"><i class="fa fa-trash"></i></a>
 														</div>
 													</td>
 												</tr>
@@ -158,180 +223,197 @@
 		</div>	
     </div>
 </div>
-<ng-template #template>
-	<form [formGroup]="form" (submit)="save(title)">
-	    <div class="modal-header">
-	        <h4 class="modal-title pull-left">
-	            <i class="fa fa-{{title == 'post' ? 'plus-square' : '' }}{{title == 'edit' ? 'pencil-square' : '' }}{{title == 'delete' ? 'trash' : '' }}"></i> 
-	            {{title == 'post' ? 'Add New' : ''}} 
-	            {{title == 'edit' ? 'Edit' : ''}} 
-	            {{title == 'delete' ? 'Delete' : ''}}
-	            {{name}}
-	        </h4>
-	        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-	            <span aria-hidden="true">&times;</span>
-	        </button>
-	    </div>
-	    <div class="modal-body">
-	        <div *ngIf="title == 'delete' else crud">
-	            <h3>Are you sure you want to delete this data ?</h3>
-	        </div>
-	        <ng-template #crud>
-	            <div class="form-group {{ errors?.title || form.controls['title'].errors && (form.controls['title'].dirty || form.controls['title'].touched) ? 'has-error' : '' }}">
-	                <label>Title</label>
-	                <input type="text" class="form-control" #title (keyup)="slug(title.value)" formControlName="title">
-	                <small *ngIf="errors?.title || form.controls['title'].errors && (form.controls['title'].dirty || form.controls['title'].touched)"> 
-	                    <span class="help-block">{{ errors?.title }} </span>
-	                    <span class="help-block" *ngIf="form.controls['title'].hasError('required')">The title field is required.</span> 
-	                </small>
-	            </div>
-	            <div class="form-group {{ errors?.slug || form.controls['slug'].errors && (form.controls['slug'].dirty || form.controls['slug'].touched) ? 'has-error' : '' }}">
-	                <label>Slug</label>
-	                <input type="text" class="form-control" #slugchange (keyup)="slug(slugchange.value)" formControlName="slug">
-	                <small *ngIf="errors?.slug || form.controls['slug'].errors && (form.controls['slug'].dirty || form.controls['slug'].touched)"> 
-	                    <span class="help-block">{{ errors?.slug }} </span>
-	                    <span class="help-block" *ngIf="form.controls['slug'].hasError('required')">The slug field is required.</span> 
-	                </small>
-	            </div>
-            	<div *ngIf="name == 'Portfolio'" class="form-group {{ errors?.description || form.controls['description'].errors && (form.controls['description'].dirty || form.controls['description'].touched) ? 'has-error' : '' }}">
-	                <label>Description</label>
-	                <textarea class="form-control" formControlName="description"></textarea>
-	                <small *ngIf="errors?.description || form.controls['description'].errors && (form.controls['description'].dirty || form.controls['description'].touched)"> 
-	                    <span class="help-block">{{ errors?.description }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['description'].hasError('required')">The description field is required.</span> 
-	                </small>
-	            </div>
-            	<div *ngIf="name == 'Blog'" class="form-group {{ errors?.body || form.controls['body'].errors && (form.controls['body'].dirty || form.controls['body'].touched) ? 'has-error' : '' }}">
-	                <label>Body</label>
-	                <textarea class="form-control" formControlName="body"></textarea>
-	                <small *ngIf="errors?.body || form.controls['body'].errors && (form.controls['body'].dirty || form.controls['body'].touched)"> 
-	                    <span class="help-block">{{ errors?.body }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['body'].hasError('required')">The body field is required.</span> 
-	                </small>
-	            </div>
-	            <div class="form-group {{ errors?.category || form.controls['category'].errors && (form.controls['category'].dirty || form.controls['category'].touched) ? 'has-error' : '' }}">
-            		<p><label>Select Categories</label><a style="cursor: pointer" class="pull-right"  (click)="openModal2('Category', tagcategorymodal)"><i class="fa fa-plus"></i>  Add Category </a></p>
-            		<!-- <select class="form-control" formControlName="category" multiple>
-            			<option *ngFor="let item of categories" value="{{item.id}}" selected="selected">{{item.title}}</option>
-            		</select> -->
-
-            		<ng-selectize 
-	            		[config]="config" 
-	            		[options]="categories" 
-	            		[placeholder]="placeholder1" 
-	            		formControlName="category" 
-				   		[(ngModel)]="value1" 
-	            		ngDefaultControl>
-	            	</ng-selectize>
-
-            		<small *ngIf="errors?.category || form.controls['category'].errors && (form.controls['category'].touched || form.controls['category'].dirty)"> 
-	                    <span class="help-block">{{ errors?.category }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['category'].hasError('required')">The category field is required.</span> 
-	                </small>
-            	</div>
-            	<div *ngIf="name == 'Blog'" class="form-group {{ errors?.tag || form.controls['tag'].errors && (form.controls['tag'].dirty || form.controls['tag'].touched) ? 'has-error' : '' }}">
-            		<p><label>Select Tags</label><a style="cursor: pointer" class="pull-right" (click)="openModal2('Tag', tagcategorymodal)"><i class="fa fa-plus"></i> Add Tag </a></p>
-            		<!-- <select class="form-control" formControlName="tag" multiple>
-            			<option *ngFor="let item2 of tags" value="{{item2.id}}">{{item2.title}}</option>
-            		</select> -->
-            		<ng-selectize 
-	            		[config]="config" 
-	            		[options]="tags" 
-	            		[placeholder]="placeholder2" 
-	            		formControlName="tag" 
-				   		[(ngModel)]="value2" 
-	            		ngDefaultControl>
-	            	</ng-selectize>
-	            	
-            		<small *ngIf="errors?.tag || form.controls['tag'].errors && (form.controls['tag'].touched || form.controls['tag'].dirty)"> 
-	                    <span class="help-block">{{ errors?.tag }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['tag'].hasError('required')">The tag field is required.</span> 
-	                </small>
-            	</div>
-	            <div class="form-group {{ errors?.link || form.controls['link'].errors && (form.controls['link'].dirty || form.controls['link'].touched) ? 'has-error' : '' }}" *ngIf="name == 'Portfolio'">
-	                <label>Link</label>
-	                <input type="url" class="form-control" formControlName="link">
-	                <small *ngIf="errors?.link || form.controls['link'].errors && (form.controls['link'].touched || form.controls['link'].dirty)"> 
-	                    <span class="help-block">{{ errors?.link }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['link'].hasError('required')">The link field is required.</span> 
-	                    <span class="help-block" *ngIf="form.controls['link'].hasError('pattern')">The link format is invalid..</span> 
-	                </small>
-	            </div>
-	            <div class="form-group {{ errors?.photo ? 'has-error' : '' }}">
-	                <label>Image Cover</label>
-	                <input type="file" class="form-control" formControlName="image" (change)="getFile($event)">
-	                <small *ngIf="errors?.photo"> 
-	                    <span class="help-block">{{ errors?.photo }} </span> 
-	                </small>
-	            </div>
-	            <div class="form-group {{ errors?.status || form.controls['status'].errors && (form.controls['status'].dirty || form.controls['status'].touched) ? 'has-error' : '' }}">
-	                <label>Status</label>
-	                <select formControlName="status" class="form-control">
-	                    <option value="published">Published</option>
-	                    <option value="unpublished">Unpublished</option>
-	                </select>
-	                <small *ngIf="errors?.status || form.controls['status'].errors && (form.controls['status'].dirty || form.controls['status'].touched)"> 
-	                    <span class="help-block">{{ errors?.status }} </span> 
-	                    <span class="help-block" *ngIf="form.controls['status'].hasError('required')">The field status is required.</span> 
-	                </small>
-	            </div>
-	        </ng-template>
-	    </div>
-	    <!-- [disabled]="title == 'delete' ? '' : !form.valid" -->
-	    <div class="modal-footer">
-	        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
-	        <button  type="submit" class="btn btn-{{title == 'post' ? 'primary' : ''}}{{title == 'edit' ? 'info' : ''}}{{title == 'delete' ? 'danger' : ''}}">
-	            {{ title == 'post' ? 'Save ' : '' }}
-	            {{ title == 'edit' ? 'Update ' : '' }}
-	            {{ title == 'delete' ? 'Delete ' : '' }}
-	            <i class="fa fa-{{title == 'post' ? 'save' : '' }}{{title == 'edit' ? 'check' : '' }}{{title == 'delete' ? 'trash' : '' }}"></i> 
-	        </button>
-	    </div>
+<ng-template #deletemodal>
+	<div class="modal-header">
+        <h4 class="modal-title pull-left">
+            <i class="fa fa-trash"></i>&nbsp;Delete {{name}}
+        </h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div >
+            <h3>Are you sure you want to delete this data ?</h3>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="modalRef.hide()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="delete(name, id)">Delete <i class="fa fa-trash"></i></button>
+    </div>
+</ng-template>
+<ng-template #blogtemplate>
+	<form [formGroup]="form3" (submit)="save(action)">
+	   <div class="widget">
+			<div class="widget-header transparent">
+				<h2>
+		            <i class="fa fa-{{action == 'post' ? 'plus-square' : '' }}{{action == 'edit' ? 'pencil-square' : '' }}"></i>&nbsp; 
+		            {{ action == 'post' ? 'Add New' : '' }} 
+		            {{ action == 'edit' ? 'Edit' : '' }} 
+		            {{ name }}
+		        </h2>
+			</div>
+			<div class="widget-content">
+				<div class="data-table-toolbar">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="toolbar-btn-action">
+								<a class="btn btn-success" (click)="hide()"><i class="fa fa-arrow-left"></i> Back</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+		    		<br>
+		            <div class="form-group {{ errors?.title || form3.controls['title'].errors && (form3.controls['title'].dirty || form3.controls['title'].touched) ? 'has-error' : '' }}">
+		                <label>Title</label>
+		                <input type="text" class="form-control" #title (keyup)="slug(title.value)" formControlName="title">
+		                <small *ngIf="errors?.title || form3.controls['title'].errors && (form3.controls['title'].dirty || form3.controls['title'].touched)"> 
+		                    <span class="help-block">{{ errors?.title }} </span>
+		                    <span class="help-block" *ngIf="form3.controls['title'].hasError('required')">The title field is required.</span> 
+		                </small>
+		            </div>
+		            <div class="form-group {{ errors?.slug || form3.controls['slug'].errors && (form3.controls['slug'].dirty || form3.controls['slug'].touched) ? 'has-error' : '' }}">
+		                <label>Slug</label>
+		                <input type="text" class="form-control" #slugchange (keyup)="slug(slugchange.value)" formControlName="slug">
+		                <small *ngIf="errors?.slug || form3.controls['slug'].errors && (form3.controls['slug'].dirty || form3.controls['slug'].touched)"> 
+		                    <span class="help-block">{{ errors?.slug }} </span>
+		                    <span class="help-block" *ngIf="form3.controls['slug'].hasError('required')">The slug field is required.</span> 
+		                </small>
+		            </div>
+	            	<div class="form-group {{ errors?.body || form3.controls['body'].errors && (form3.controls['body'].dirty || form3.controls['body'].touched) ? 'has-error' : '' }}">
+		                <label>Body</label>
+		                <ckeditor formControlName="body"
+					    	[config]="{extraPlugins: 'divarea'}" 
+						    [(ngModel)]="body" 
+						    debounce="500">
+						 </ckeditor>
+		                <small *ngIf="errors?.body || form3.controls['body'].errors && (form3.controls['body'].dirty || form3.controls['body'].touched)"> 
+		                    <span class="help-block">{{ errors?.body }} </span> 
+		                    <span class="help-block" *ngIf="form3.controls['body'].hasError('required')">The body field is required.</span> 
+		                </small>
+		            </div>
+		            <div class="form-group {{ errors?.category || form3.controls['category'].errors && (form3.controls['category'].dirty || form3.controls['category'].touched) ? 'has-error' : '' }}">
+	            		<label>Select Categories</label>
+	            		<ng-selectize 
+		            		[config]="config" 
+		            		[options]="categories" 
+		            		[placeholder]="placeholder1" 
+		            		formControlName="category" 
+					   		[(ngModel)]="value1" 
+		            		ngDefaultControl>
+		            	</ng-selectize>
+	            		<small *ngIf="errors?.category || form3.controls['category'].errors && (form3.controls['category'].touched || form3.controls['category'].dirty)"> 
+		                    <span class="help-block">{{ errors?.category }} </span> 
+		                    <span class="help-block" *ngIf="form3.controls['category'].hasError('required')">The category field is required.</span> 
+		                </small>
+	            	</div>
+	            	<div class="form-group {{ errors?.tag || form3.controls['tag'].errors && (form3.controls['tag'].dirty || form3.controls['tag'].touched) ? 'has-error' : '' }}">
+	            		<label>Select Tags</label>
+	            		<ng-selectize 
+		            		[config]="config" 
+		            		[options]="tags" 
+		            		[placeholder]="placeholder2" 
+		            		formControlName="tag" 
+					   		[(ngModel)]="value2" 
+		            		ngDefaultControl>
+		            	</ng-selectize>
+	            		<small *ngIf="errors?.tag || form3.controls['tag'].errors && (form3.controls['tag'].touched || form3.controls['tag'].dirty)"> 
+		                    <span class="help-block">{{ errors?.tag }} </span> 
+		                    <span class="help-block" *ngIf="form3.controls['tag'].hasError('required')">The tag field is required.</span> 
+		                </small>
+	            	</div>
+		            <div class="form-group {{ errors?.photo ? 'has-error' : '' }}">
+		                <label>Image Cover</label>
+		                <input type="file" class="form-control" formControlName="image" (change)="getFile($event)">
+		                <small *ngIf="errors?.photo"> 
+		                    <span class="help-block">{{ errors?.photo }} </span> 
+		                </small>
+		            </div>
+		            <div class="form-group {{ errors?.status || form3.controls['status'].errors && (form3.controls['status'].dirty || form3.controls['status'].touched) ? 'has-error' : '' }}">
+		                <label>Status</label>
+		                <select formControlName="status" class="form-control">
+		                    <option value="published">Published</option>
+		                    <option value="unpublished">Unpublished</option>
+		                </select>
+		                <small *ngIf="errors?.status || form3.controls['status'].errors && (form3.controls['status'].dirty || form3.controls['status'].touched)"> 
+		                    <span class="help-block">{{ errors?.status }} </span> 
+		                    <span class="help-block" *ngIf="form3.controls['status'].hasError('required')">The field status is required.</span> 
+		                </small>
+		            </div>
+		    		<div class="form-group">
+				        <button [disabled]="!form3.valid" (submit)="form3.reset" type="submit" class="pull-right btn btn-{{action == 'post' ? 'primary' : ''}}{{action == 'edit' ? 'info' : ''}}">
+				            {{ action == 'post' ? 'Save ' : '' }}
+				            {{ action == 'edit' ? 'Update ' : '' }}
+				            <i class="fa fa-{{action == 'post' ? 'save' : '' }}{{action == 'edit' ? 'check' : '' }}"></i> 
+				        </button>
+		    		</div>
+		    		<br><br><br>
+				</div>
+			</div>
+		</div>
 	</form>
 </ng-template>
-<ng-template #tagcategorymodal>
-	<form [formGroup]="form2" (submit)="save2(title2)">
-		<div class="modal-header">
-			<h4 class="modal-title pull-left">
-	            <i class="fa fa-plus"></i> 
-	            Add {{title2}}
-	        </h4>
-	        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef2.hide()">
-	            <span aria-hidden="true">&times;</span>
-	        </button>
-		</div>
-		<div class="modal-body">
-			<div class="form-group {{ errors?.title || form2.controls['title'].errors && (form2.controls['title'].dirty || form2.controls['title'].touched) ? 'has-error' : '' }}">
-				<label>Title</label>
-				<input type="text" formControlName="title" class="form-control">
-				<small *ngIf="errors?.title || form2.controls['title'].errors && (form2.controls['title'].dirty || form2.controls['title'].touched)">
-					<span class="help-block">{{ errors?.title }}</span>
-					<span class="help-block" *ngIf="form2.controls['title'].hasError('required')">The title field is required.</span>
-				</small>
+<ng-template #tagcategory>
+	<form [formGroup]="form2" (submit)="save(action)">
+	   <div class="widget">
+			<div class="widget-header transparent">
+				<h2>
+		            <i class="fa fa-{{action == 'post' ? 'plus-square' : '' }}{{action == 'edit' ? 'pencil-square' : '' }}"></i>&nbsp; 
+		            {{ action == 'post' ? 'Add New' : '' }} 
+		            {{ action == 'edit' ? 'Edit' : '' }} 
+		            {{ name }}
+		        </h2>
 			</div>
-			<div class="form-group {{ errors?.description || form2.controls['description'].errors && (form2.controls['description'].dirty || form2.controls['description'].touched) ? 'has-error' : '' }}">
-				<label>Description</label>
-				<textarea class="form-control" formControlName="description"></textarea>
-				<small *ngIf="errors?.description || form2.controls['description'].errors && (form2.controls['description'].dirty || form2.controls['description'].touched)">
-					<span class="help-block">{{ errors?.description }}</span>
-					<span class="help-block" *ngIf="form2.controls['description'].hasError('required')">The description field is required.</span>
-				</small>
+			<div class="widget-content">
+				<div class="data-table-toolbar">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="toolbar-btn-action">
+								<a class="btn btn-success" (click)="hide()"><i class="fa fa-arrow-left"></i> Back</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12">
+		    		<br>
+					<div class="form-group {{ errors?.title || form2.controls['title'].errors && (form2.controls['title'].dirty || form2.controls['title'].touched) ? 'has-error' : '' }}">
+						<label>Title</label>
+						<input type="text" formControlName="title" class="form-control">
+						<small *ngIf="errors?.title || form2.controls['title'].errors && (form2.controls['title'].dirty || form2.controls['title'].touched)">
+							<span class="help-block">{{ errors?.title }}</span>
+							<span class="help-block" *ngIf="form2.controls['title'].hasError('required')">The title field is required.</span>
+						</small>
+					</div>
+					<div class="form-group {{ errors?.description || form2.controls['description'].errors && (form2.controls['description'].dirty || form2.controls['description'].touched) ? 'has-error' : '' }}">
+						<label>Description</label>
+						<textarea class="form-control" formControlName="description"></textarea>
+						<small *ngIf="errors?.description || form2.controls['description'].errors && (form2.controls['description'].dirty || form2.controls['description'].touched)">
+							<span class="help-block">{{ errors?.description }}</span>
+							<span class="help-block" *ngIf="form2.controls['description'].hasError('required')">The description field is required.</span>
+						</small>
+					</div>
+					<div class="form-group {{ errors?.status || form2.controls['status'].errors && (form2.controls['status'].dirty || form2.controls['status'].touched) ? 'has-error' : '' }}">
+						<label>Status</label>
+						<select class="form-control">
+							<option value="published">Published</option>
+							<option value="unpublished">Unpublished</option>
+						</select>
+						<small *ngIf="errors?.status || form2.controls['status'].errors && (form2.controls['status'].dirty || form2.controls['status'].touched)">
+							<span class="help-block">{{ errors?.status }}</span>
+							<span class="help-block" *ngIf="form2.controls['status'].hasError('required')">The status field is required.</span>
+						</small>
+					</div>
+					<div class="form-group">
+				        <button [disabled]="!form2.valid" (submit)="form2.reset" type="submit" class="pull-right btn btn-{{action == 'post' ? 'primary' : ''}}{{action == 'edit' ? 'info' : ''}}">
+				            {{ action == 'post' ? 'Save ' : '' }}
+				            {{ action == 'edit' ? 'Update ' : '' }}
+				            <i class="fa fa-{{action == 'post' ? 'save' : '' }}{{action == 'edit' ? 'check' : '' }}"></i> 
+				        </button>
+		    		</div>
+		    		<br><br><br>
+				</div>
 			</div>
-			<div class="form-group {{ errors?.status || form2.controls['status'].errors && (form2.controls['status'].dirty || form2.controls['status'].touched) ? 'has-error' : '' }}">
-				<label>Status</label>
-				<select class="form-control">
-					<option value="published">Published</option>
-					<option value="unpublished">Unpublished</option>
-				</select>
-				<small *ngIf="errors?.status || form2.controls['status'].errors && (form2.controls['status'].dirty || form2.controls['status'].touched)">
-					<span class="help-block">{{ errors?.status }}</span>
-					<span class="help-block" *ngIf="form2.controls['status'].hasError('required')">The status field is required.</span>
-				</small>
-			</div>
-		</div>
-		<div class="modal-footer">
-			<button type="button" class="btn btn-default" (click)="modalRef2.hide()">Cancel</button>
-	        <button [disabled]="!form2.valid" type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save</button>
 		</div>
 	</form>
 </ng-template>

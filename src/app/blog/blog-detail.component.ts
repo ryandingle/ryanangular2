@@ -1,29 +1,49 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validator } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { 
+    BlogService,
+    PaceService 
+} from '../shared/services';
+import { 
+    BlogModel 
+} from '../shared/models';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog-detail.component.html',
-  styleUrls: ['./blog-detail.component.css']
+  selector: 'app-blog-detail',
+  templateUrl: './blog-detail.component.html'
 })
+
 export class BlogDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private blog: BlogService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private pace: PaceService) { }
 
-  form: any;
+  public post: BlogModel;
+  public slug = this.route.snapshot.params['slug'];
+  public recentPost: BlogModel[];
+  public pageId = '/blog/'+this.slug;
 
   ngOnInit() {
-      this.createForm();
+    this.blog.getBySlug(this.slug).then(response => { 
+        this.post = response[0]; 
+        this.pace.setTitle('Ryan Dingle - '+this.post.title);
+    });
+    this.blog.getRecentPost().then(response=> this.recentPost = response);
   }
 
-  createForm() {
-      this.form = new FormGroup({
-          name: new FormControl(),
-          email: new FormControl(),
-          website: new FormControl(),
-          comment: new FormControl(),
-          subscribe: new FormControl()
+  navigate(slug) {    this.route.params.subscribe(res => { 
+      this.router.navigate(['blog', slug]).then(res=>{
+        this.pageId = '/works/'+slug;
+        this.blog.getBySlug(slug).then(response => { 
+            this.post = response[0]; 
+            this.pace.setTitle('Ryan Dingle - '+this.post.title);
+        });
+        this.blog.getRecentPost().then(response=> this.recentPost = response);
       });
+    });
   }
 
 }

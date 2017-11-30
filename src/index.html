@@ -12,10 +12,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	  	<base href="/">
-	  	<!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
 
         <link rel="shortcut icon" href="assets/img/favicon.ico">
         <link rel="apple-touch-icon" href="assets/admin/img/apple-touch-icon.png" />
@@ -26,12 +22,24 @@
         <link rel="apple-touch-icon" sizes="120x120" href="assets/admin/img/apple-touch-icon-120x120.png" />
         <link rel="apple-touch-icon" sizes="144x144" href="assets/admin/img/apple-touch-icon-144x144.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="assets/admin/img/apple-touch-icon-152x152.png" />
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 	</head>
 	<body  class="fixed-left">
         <div id="wrapper">   
-			<app-root>Loading app..</app-root>
+			<app-root>
+				<h4 style="text-align: center">
+			      	<img src="assets/img/loader.gif">
+			    </h4>
+			</app-root>
         	<a class="tothetop" href="javascript:;"><i class="fa fa-angle-up"></i></a>
 		</div>
 		<script>var resizefunc = [];</script>
+		<script type="text/javascript" src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+		<script type="text/javascript" src="http://cdn.ckeditor.com/4.5.11/full-all/plugins/divarea/plugin.js"></script>
+		<script type="text/javascript" src="//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9"></script>
 	</body>
 </html>

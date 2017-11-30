@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+.border-left-black{ border-left: 1px solid #ccc; }
+.no-bullets{ 
+	list-style: none;
+	padding-left: 0px;
+	min-height: 600px;
+}
+.site-title{
+	font-family: 'Open Sans';
+	color: #fff;
+	text-shadow: #000 0px 1px 2px;
+	font-size: 35px;
+}
+.site-title-backend{
+	font-family: 'Open Sans';
+	color: #fff;
+	text-shadow: #000 0px 1px 2px;
+	font-size: 25px;
+}
+.font-white{
+	color: #fff;
+}

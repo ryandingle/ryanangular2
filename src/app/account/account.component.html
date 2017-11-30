@@ -1,3 +1,106 @@
-<p>
-  setting works!
-</p>
+<div class="content-page" style="min-height: 600px">
+	<notify></notify>
+    <div class="content">
+    	<div class="page-heading">
+            <h1><i class="fa fa-user"></i> Account</h1>
+        </div>
+		<div class="row">
+			<div class="container">
+				<div class="widget">
+					<div class="widget-header transparent">
+						<h2>My Account</h2>
+						<div class="additional-btn">
+							<a class="widget-toggle"><i class="icon-down-open-2"></i></a>
+						</div>
+					</div>
+					<div class="widget-content">
+						<div class="data-table-toolbar">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="toolbar-btn-action">
+										<a class="btn btn-success" (click)="show()" *ngIf="showForm == 0"><i class="fa fa-pencil"></i> Change Info</a>
+										<a class="btn btn-info" (click)="hide()" *ngIf="showForm == 1"><i class="fa fa-arrow-left"></i> Cancel</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="table-responsive" *ngIf="showForm == 0 else siteform">
+							<table width="100%" class="text-left">
+								<tr>
+									<td>First Name:</td>
+									<td><h2>{{userCookie?.firstname}}</h2></td>
+								</tr>
+								<tr>
+									<td>Last Name:</td>
+									<td><h2>{{userCookie?.lastname}}</h2></td>
+								</tr>
+								<tr>
+									<td>Email:</td>
+									<td><h2>{{userCookie?.email}}</h2></td>
+								</tr>
+								<tr>
+									<td>Password:</td>
+									<td><h2>*****</h2></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<ng-template #siteform>
+						<div class="col-md-12">
+							<br>
+							<form [formGroup]="form" (submit)="save()">
+								<div class="form-group {{errors?.firstname || form.controls['firstname'].errors && (form.controls['firstname'].touched || form.controls['firstname'].dirty) ? 'has-error' : ''}}">
+									<label>First Name</label>
+									<input type="text" class="form-control" formControlName="firstname">
+									<small *ngIf="errors?.firstname || form.controls['firstname'].errors && (form.controls['firstname'].touched || form.controls['firstname'].dirty)">
+										<span class="help-block">{{ errors?.firstname }}</span>
+										<span class="help-block" *ngIf="form.controls['firstname'].hasError('required')">The firstname field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{errors?.lastname || form.controls['lastname'].errors && (form.controls['lastname'].touched || form.controls['lastname'].dirty) ? 'has-error' : ''}}">
+									<label>Last Name</label>
+									<input type="text" class="form-control" formControlName="lastname">
+									<small *ngIf="errors?.lastname || form.controls['lastname'].errors && (form.controls['lastname'].touched || form.controls['lastname'].dirty)">
+										<span class="help-block">{{ errors?.lastname }}</span>
+										<span class="help-block" *ngIf="form.controls['lastname'].hasError('required')">The lastname field is required.</span>
+									</small>
+								</div>
+								<div class="form-group {{errors?.email || form.controls['email'].errors && (form.controls['email'].touched || form.controls['email'].dirty) ? 'has-error' : ''}}">
+									<label>Email</label>
+									<input type="text" class="form-control" formControlName="email">
+									<small *ngIf="errors?.email || form.controls['email'].errors && (form.controls['email'].touched || form.controls['email'].dirty)">
+										<span class="help-block">{{ errors?.email }}</span>
+										<span class="help-block" *ngIf="form.controls['email'].hasError('required')">The email field is required.</span>
+										<span class="help-block" *ngIf="form.controls['email'].hasError('email')">The email field is invalid.</span>
+									</small>
+								</div>
+								<div class="form-group {{errors?.password || form.controls['password'].errors && (form.controls['password'].touched || form.controls['password'].dirty) || form.hasError('mismatch') ? 'has-error' : ''}}">
+									<label>Password</label>
+									<input type="password" class="form-control" formControlName="password">
+									<small *ngIf="errors?.password || form.controls['password'].errors && (form.controls['password'].touched || form.controls['password'].dirty)">
+										<span class="help-block">{{ errors?.password }}</span>
+										<span class="help-block" *ngIf="form.controls['password'].hasError('required')">The password field is required.</span>
+									</small>
+					                <div *ngIf="form.controls['password2'].valid">
+					                	<small *ngIf="form.hasError('mismatch')"><span id="helpblock1" class="help-block">The repeat password does not match.</span></small>
+					            	</div>
+								</div>
+								<div class="form-group {{errors?.password_confirmation || form.controls['password2'].errors && (form.controls['password2'].touched || form.controls['password2'].dirty) ? 'has-error' : ''}}">
+									<label>Repeat Password</label>
+									<input type="password" class="form-control" formControlName="password2">
+									<small *ngIf="errors?.password_confirmation || form.controls['password2'].errors && (form.controls['password2'].touched || form.controls['password2'].dirty)">
+										<span class="help-block" *ngIf="errors?.password_confirmation">The repeat password field is required.</span>
+										<span class="help-block" *ngIf="form.controls['password2'].hasError('required')">The repeat password field is required.</span>
+									</small>
+								</div>
+								<div class="form-group">
+									<button type="submit" [disabled]="form.errors" class="btn btn-primary">Save <i class="fa fa-save"></i></button>
+								</div>
+							</form>
+						</div>
+					</ng-template>
+				</div>
+			</div>
+		</div>	
+    </div>
+</div>
