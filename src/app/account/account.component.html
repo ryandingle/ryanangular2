@@ -25,7 +25,16 @@
 							</div>
 						</div>
 						<div class="table-responsive" *ngIf="showForm == 0 else siteform">
+							<br><br>
 							<table width="100%" class="text-left">
+								<tr>
+									<td>Profile Picture</td>
+									<td class="text-center">
+										<div class="col-md-3 col-md-offset-1">
+											<img class="img-responsive rounded-image" src="{{userCookie?.image}}">
+										</div>
+									</td>
+								</tr>
 								<tr>
 									<td>First Name:</td>
 									<td><h2>{{userCookie?.firstname}}</h2></td>
@@ -49,6 +58,13 @@
 						<div class="col-md-12">
 							<br>
 							<form [formGroup]="form" (submit)="save()">
+								<div class="form-group">
+									<label>Profile Picture</label>
+									<input type="file" formControlName="image"  (change)="getFile($event)">
+									<small *ngIf="">
+										<span class="help-block" *ngIf=""></span>
+									</small>
+								</div>
 								<div class="form-group {{errors?.firstname || form.controls['firstname'].errors && (form.controls['firstname'].touched || form.controls['firstname'].dirty) ? 'has-error' : ''}}">
 									<label>First Name</label>
 									<input type="text" class="form-control" formControlName="firstname">

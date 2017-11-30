@@ -28,6 +28,7 @@ export class AccountComponent implements OnInit {
   public errors: Errors;
   public id: any = '';
   public userCookie = this.auth.getUserToken();
+  public photo: any;
 
   ngOnInit() {
   	this.createForm();
@@ -46,8 +47,14 @@ export class AccountComponent implements OnInit {
   	});
   }
 
+  public getFile(event) {
+    let file = event.target.files[0];
+    this.photo = file;
+  }
+
   public createForm() {
   	this.form = new FormGroup({
+  		image: new FormControl('', [Validators.required]),
   		firstname: new FormControl('', [Validators.required]),
   		email: new FormControl('', [Validators.required, Validators.email]),
   		lastname: new FormControl('', [Validators.required]),
@@ -67,6 +74,7 @@ export class AccountComponent implements OnInit {
   	data.append('lastname', this.form.value.lastname == null ? '' : this.form.value.lastname);
   	data.append('password', this.form.value.password == null ? '' : this.form.value.password);
   	data.append('password_confirmation', this.form.value.password2 == null ? '' : this.form.value.password2);
+  	data.append('photo', this.photo == undefined ? '' : this.photo);
 
   	let id = this.userCookie['id'];
 
