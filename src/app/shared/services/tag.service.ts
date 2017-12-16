@@ -2,15 +2,13 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { TagModel, Errors  }  from '../models';
 import '../rxjs-operator';
-import { DomainService } from '../../shared';
 
 @Injectable()
 export class TagService {
 
-    constructor(private http: Http,
-    private domain: DomainService) { }
+    constructor(private http: Http) { }
 
-    private url       = 'http://api.rldwebshop.xyz/api/v1';
+    private url       = 'https://api.rldwebshop.xyz/api/v1';
     private headers = new Headers({'Accept': 'application/json'});
 
     list(): Promise<TagModel[]>{
