@@ -9,7 +9,7 @@ export class BlogService {
 
     constructor(private http: Http, private domain: DomainService) { }
 
-    private url       = 'https://api.rldwebshop.xyz/api/v1';
+    private url       = 'http://api.rldwebshop.xyz/api/v1';
     private headers   = new Headers({'Accept': 'application/json'});
 
     list(data: any): Promise<BlogModel[]>{
