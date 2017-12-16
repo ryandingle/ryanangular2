@@ -84,7 +84,7 @@
                 <a routerLink="/" *ngFor="let item2 of sitedata">
                     <img src="{{item2.logo}}" alt="{{item2.title}}" class="logo" *ngIf="item2.logo else nologo">
                     <ng-template #nologo>
-                        <p class="site-title-backend">Ryan Dingle</p>
+                        <p class="site-title-backend">{{item2.title}}</p>
                     </ng-template>
                 </a>
             </h1>
