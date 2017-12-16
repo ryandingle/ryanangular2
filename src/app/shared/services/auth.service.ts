@@ -9,18 +9,20 @@ import '../rxjs-operator';
 import {
   UserModel, TokenModel
 } from '../../shared/models';
+import { DomainService } from '../../shared';
 
 @Injectable()
 export class AuthService {
 
   constructor(
     private router: Router,
-    private http: Http
+    private http: Http,
+    private domain: DomainService
   ) {
   }
 
   private islogin   = localStorage.getItem('token') ? true : false;
-  private url       = 'http://portfolioapi.app/api/v1';
+  private url       = this.domain.url;//'http://portfolioapi.app/api/v1';
   private headers   = new Headers({'Accept': 'application/json'});
 
   login(data: any): Promise<UserModel>{

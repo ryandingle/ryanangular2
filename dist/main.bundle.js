@@ -228,7 +228,7 @@ AccountComponent = __decorate([
         selector: 'app-account',
         template: __webpack_require__("../../../../../src/app/account/account.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["c" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["l" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["l" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["c" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["m" /* UserService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["m" /* UserService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */]) === "function" && _c || Object])
 ], AccountComponent);
 
 var _a, _b, _c;
@@ -632,7 +632,7 @@ AdminComponent = __decorate([
         selector: 'app-admin',
         template: __webpack_require__("../../../../../src/app/admin/admin.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["f" /* CounterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["f" /* CounterService */]) === "function" && _j || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["f" /* CounterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["f" /* CounterService */]) === "function" && _j || Object])
 ], AdminComponent);
 
 var _a, _b, _c, _d, _e, _f, _g, _h, _j;
@@ -705,10 +705,10 @@ AdminModule = __decorate([
         ],
         exports: [],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_7__shared_services__["j" /* SiteService */],
-            __WEBPACK_IMPORTED_MODULE_7__shared_services__["i" /* PortfolioService */],
+            __WEBPACK_IMPORTED_MODULE_7__shared_services__["k" /* SiteService */],
+            __WEBPACK_IMPORTED_MODULE_7__shared_services__["j" /* PortfolioService */],
             __WEBPACK_IMPORTED_MODULE_7__shared_services__["d" /* BlogService */],
-            __WEBPACK_IMPORTED_MODULE_7__shared_services__["k" /* TagService */],
+            __WEBPACK_IMPORTED_MODULE_7__shared_services__["l" /* TagService */],
             __WEBPACK_IMPORTED_MODULE_7__shared_services__["e" /* CategoryService */],
             __WEBPACK_IMPORTED_MODULE_7__shared_services__["b" /* AuthGuard */],
             __WEBPACK_IMPORTED_MODULE_9_notify_angular__["b" /* NotifyService */],
@@ -892,7 +892,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_4_ngx_bootstrap__["a" /* ModalModule */].forRoot(),
             __WEBPACK_IMPORTED_MODULE_6_ngx_sharebuttons__["a" /* ShareButtonsModule */].forRoot(),
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b" /* Title */], __WEBPACK_IMPORTED_MODULE_16__shared_services__["h" /* PaceService */]],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["b" /* Title */], __WEBPACK_IMPORTED_MODULE_16__shared_services__["i" /* PaceService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -1302,7 +1302,7 @@ ArticleComponent = __decorate([
         selector: 'app-article',
         template: __webpack_require__("../../../../../src/app/apps/article/article.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object])
 ], ArticleComponent);
 
 var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -1583,7 +1583,7 @@ PortfolioComponent = __decorate([
         selector: 'app-portfolio',
         template: __webpack_require__("../../../../../src/app/apps/portfolio/portfolio.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["i" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["k" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap_modal__["a" /* BsModalService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["d" /* BlogService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["j" /* PortfolioService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["l" /* TagService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["e" /* CategoryService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* Router */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__shared_services__["a" /* AlertService */]) === "function" && _h || Object])
 ], PortfolioComponent);
 
 var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -1620,7 +1620,7 @@ var Routing = __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule 
     {
         path: 'auth/login',
         component: __WEBPACK_IMPORTED_MODULE_3__login_component__["a" /* LoginComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["g" /* NoAuthGuard */]],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["h" /* NoAuthGuard */]],
         data: {
             page: 'login',
             title: 'Ryan Dingle - Login'
@@ -1629,7 +1629,7 @@ var Routing = __WEBPACK_IMPORTED_MODULE_1__angular_router__["d" /* RouterModule 
     {
         path: 'auth/register',
         component: __WEBPACK_IMPORTED_MODULE_4__register_component__["a" /* RegisterComponent */],
-        canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["g" /* NoAuthGuard */]],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["h" /* NoAuthGuard */]],
         data: {
             page: 'register',
             title: 'Ryan Dingle - Register'
@@ -1653,7 +1653,7 @@ AuthModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__login_component__["a" /* LoginComponent */],
             __WEBPACK_IMPORTED_MODULE_4__register_component__["a" /* RegisterComponent */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__shared_services__["g" /* NoAuthGuard */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_6__shared_services__["c" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__shared_services__["h" /* NoAuthGuard */]]
     })
 ], AuthModule);
 
@@ -1789,7 +1789,7 @@ RegisterComponent = __decorate([
         selector: 'app-register',
         template: __webpack_require__("../../../../../src/app/auth/register.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["h" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["h" /* PaceService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["i" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["i" /* PaceService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _c || Object])
 ], RegisterComponent);
 
 var _a, _b, _c;
@@ -1958,7 +1958,7 @@ BlogDetailComponent = __decorate([
         selector: 'app-blog-detail',
         template: __webpack_require__("../../../../../src/app/blog/blog-detail.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["d" /* BlogService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["d" /* BlogService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["d" /* BlogService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */]) === "function" && _d || Object])
 ], BlogDetailComponent);
 
 var _a, _b, _c, _d;
@@ -2372,6 +2372,7 @@ HomeModule = __decorate([
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "AlertService")) __webpack_require__.d(__webpack_exports__, "AlertService", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["AlertService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "AuthGuard")) __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["AuthGuard"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "AuthService")) __webpack_require__.d(__webpack_exports__, "AuthService", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["AuthService"]; });
+/* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "DomainService")) __webpack_require__.d(__webpack_exports__, "DomainService", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["DomainService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "PaceService")) __webpack_require__.d(__webpack_exports__, "PaceService", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["PaceService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "PortfolioService")) __webpack_require__.d(__webpack_exports__, "PortfolioService", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["PortfolioService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_2__models__, "SelectMultiConfig")) __webpack_require__.d(__webpack_exports__, "SelectMultiConfig", function() { return __WEBPACK_IMPORTED_MODULE_2__models__["SelectMultiConfig"]; });
@@ -2381,10 +2382,11 @@ HomeModule = __decorate([
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "AlertService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["a"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["b"]; });
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["c"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "PaceService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["h"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "PortfolioService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["i"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "SiteService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["j"]; });
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["l"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "DomainService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["g"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "PaceService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["i"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "PortfolioService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["j"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "SiteService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["k"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "UserService", function() { return __WEBPACK_IMPORTED_MODULE_3__services__["m"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__selectize_config__ = __webpack_require__("../../../../../src/app/shared/selectize.config.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "SelectMultiConfig", function() { return __WEBPACK_IMPORTED_MODULE_4__selectize_config__["a"]; });
 
@@ -2544,7 +2546,7 @@ HeaderComponent = __decorate([
         selector: 'app-header',
         template: __webpack_require__("../../../../../src/app/shared/layout/header.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["h" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["h" /* PaceService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["c" /* AuthService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__shared_services__["i" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared_services__["i" /* PaceService */]) === "function" && _c || Object])
 ], HeaderComponent);
 
 var _a, _b, _c;
@@ -2655,6 +2657,7 @@ var Errors = (function () {
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "AlertService")) __webpack_require__.d(__webpack_exports__, "AlertService", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["AlertService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "AuthGuard")) __webpack_require__.d(__webpack_exports__, "AuthGuard", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["AuthGuard"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "AuthService")) __webpack_require__.d(__webpack_exports__, "AuthService", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["AuthService"]; });
+/* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "DomainService")) __webpack_require__.d(__webpack_exports__, "DomainService", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["DomainService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "PaceService")) __webpack_require__.d(__webpack_exports__, "PaceService", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["PaceService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "PortfolioService")) __webpack_require__.d(__webpack_exports__, "PortfolioService", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["PortfolioService"]; });
 /* harmony namespace reexport (by used) */ if(__webpack_require__.o(__WEBPACK_IMPORTED_MODULE_10__selectize_model__, "SelectMultiConfig")) __webpack_require__.d(__webpack_exports__, "SelectMultiConfig", function() { return __WEBPACK_IMPORTED_MODULE_10__selectize_model__["SelectMultiConfig"]; });
@@ -3000,6 +3003,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("../../../../rxjs/add/operator/distinctUntilChanged.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_distinctUntilChanged__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3014,12 +3018,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AuthService = (function () {
-    function AuthService(router, http) {
+    function AuthService(router, http, domain) {
         this.router = router;
         this.http = http;
+        this.domain = domain;
         this.islogin = localStorage.getItem('token') ? true : false;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     AuthService.prototype.login = function (data) {
@@ -3081,10 +3087,10 @@ var AuthService = (function () {
 }());
 AuthService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__shared__["DomainService"]) === "function" && _c || Object])
 ], AuthService);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=auth.service.js.map
 
 /***/ }),
@@ -3097,6 +3103,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3109,10 +3116,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var BlogService = (function () {
-    function BlogService(http) {
+    function BlogService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     BlogService.prototype.list = function (data) {
@@ -3182,10 +3191,10 @@ var BlogService = (function () {
 }());
 BlogService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], BlogService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=blog.service.js.map
 
 /***/ }),
@@ -3198,6 +3207,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3210,10 +3220,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CategoryService = (function () {
-    function CategoryService(http) {
+    function CategoryService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     CategoryService.prototype.list = function () {
@@ -3259,10 +3271,10 @@ var CategoryService = (function () {
 }());
 CategoryService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], CategoryService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=category.service.js.map
 
 /***/ }),
@@ -3275,6 +3287,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3287,10 +3300,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CounterService = (function () {
-    function CounterService(http) {
+    function CounterService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     CounterService.prototype.get = function () {
@@ -3306,11 +3321,50 @@ var CounterService = (function () {
 }());
 CounterService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], CounterService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=counter.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/shared/services/domain.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DomainService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DomainService = (function () {
+    function DomainService(http) {
+        this.http = http;
+        this.domain = 'https://api.rldwebshop.xyz/api/v1';
+        this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
+    }
+    DomainService.prototype.url = function () {
+        return this.domain;
+    };
+    return DomainService;
+}());
+DomainService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], DomainService);
+
+var _a;
+//# sourceMappingURL=domain.service.js.map
 
 /***/ }),
 
@@ -3321,27 +3375,30 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__auth_service__ = __webpack_require__("../../../../../src/app/shared/services/auth.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_0__auth_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__site_service__ = __webpack_require__("../../../../../src/app/shared/services/site.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_1__site_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_1__site_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pace_service__ = __webpack_require__("../../../../../src/app/shared/services/pace.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_2__pace_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_2__pace_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__portfolio_service__ = __webpack_require__("../../../../../src/app/shared/services/portfolio.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "i", function() { return __WEBPACK_IMPORTED_MODULE_3__portfolio_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "j", function() { return __WEBPACK_IMPORTED_MODULE_3__portfolio_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__blog_service__ = __webpack_require__("../../../../../src/app/shared/services/blog.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_4__blog_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__category_service__ = __webpack_require__("../../../../../src/app/shared/services/category.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_5__category_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__tag_service__ = __webpack_require__("../../../../../src/app/shared/services/tag.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "k", function() { return __WEBPACK_IMPORTED_MODULE_6__tag_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_6__tag_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_service__ = __webpack_require__("../../../../../src/app/shared/services/user.service.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "l", function() { return __WEBPACK_IMPORTED_MODULE_7__user_service__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "m", function() { return __WEBPACK_IMPORTED_MODULE_7__user_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__auth_guard__ = __webpack_require__("../../../../../src/app/shared/services/auth.guard.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_8__auth_guard__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__noAuth_guard__ = __webpack_require__("../../../../../src/app/shared/services/noAuth.guard.ts");
-/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_9__noAuth_guard__["a"]; });
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "h", function() { return __WEBPACK_IMPORTED_MODULE_9__noAuth_guard__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__alert_service__ = __webpack_require__("../../../../../src/app/shared/services/alert.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_10__alert_service__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__counter_service__ = __webpack_require__("../../../../../src/app/shared/services/counter.service.ts");
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_11__counter_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__domain_service__ = __webpack_require__("../../../../../src/app/shared/services/domain.service.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "g", function() { return __WEBPACK_IMPORTED_MODULE_12__domain_service__["a"]; });
+
 
 
 
@@ -3449,6 +3506,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3461,10 +3519,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PortfolioService = (function () {
-    function PortfolioService(http) {
+    function PortfolioService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     PortfolioService.prototype.list = function (data) {
@@ -3516,10 +3576,10 @@ var PortfolioService = (function () {
 }());
 PortfolioService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], PortfolioService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=portfolio.service.js.map
 
 /***/ }),
@@ -3532,6 +3592,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3544,10 +3605,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SiteService = (function () {
-    function SiteService(http) {
+    function SiteService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     SiteService.prototype.getSite = function () {
@@ -3581,10 +3644,10 @@ var SiteService = (function () {
 }());
 SiteService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], SiteService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=site.service.js.map
 
 /***/ }),
@@ -3597,6 +3660,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3609,10 +3673,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var TagService = (function () {
-    function TagService(http) {
+    function TagService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     TagService.prototype.list = function () {
@@ -3658,10 +3724,10 @@ var TagService = (function () {
 }());
 TagService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], TagService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=tag.service.js.map
 
 /***/ }),
@@ -3674,6 +3740,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rxjs_operator__ = __webpack_require__("../../../../../src/app/shared/rxjs-operator.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared__ = __webpack_require__("../../../../../src/app/shared/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3686,10 +3753,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var UserService = (function () {
-    function UserService(http) {
+    function UserService(http, domain) {
         this.http = http;
-        this.url = 'http://portfolioapi.app/api/v1';
+        this.domain = domain;
+        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     UserService.prototype.get = function (id) {
@@ -3711,10 +3780,10 @@ var UserService = (function () {
 }());
 UserService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__shared__["DomainService"]) === "function" && _b || Object])
 ], UserService);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=user.service.js.map
 
 /***/ }),
@@ -3933,7 +4002,7 @@ MetaComponent = __decorate([
         selector: 'app-meta',
         template: __webpack_require__("../../../../../src/app/site/meta/meta.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* SiteService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* SiteService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["k" /* SiteService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["k" /* SiteService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["a" /* AlertService */]) === "function" && _b || Object])
 ], MetaComponent);
 
 var _a, _b;
@@ -4081,7 +4150,7 @@ WorksDetailComponent = __decorate([
         selector: 'app-works-detail',
         template: __webpack_require__("../../../../../src/app/works/works-detail.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PortfolioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* PortfolioService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */]) === "function" && _d || Object])
 ], WorksDetailComponent);
 
 var _a, _b, _c, _d;
@@ -4166,7 +4235,7 @@ WorksComponent = __decorate([
         selector: 'app-works',
         template: __webpack_require__("../../../../../src/app/works/works.component.html"),
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["h" /* PaceService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PortfolioService */]) === "function" && _d || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["i" /* PaceService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* PortfolioService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__shared_services__["j" /* PortfolioService */]) === "function" && _d || Object])
 ], WorksComponent);
 
 var _a, _b, _c, _d;

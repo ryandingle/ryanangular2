@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { LikeModel  }  from '../models';
 import '../rxjs-operator';
+import { DomainService } from '../../shared';
 
 @Injectable()
 export class LikeService {
 
-    constructor(private http: Http) { }
+    constructor(private http: Http,
+    private domain: DomainService) { }
 
-    private url       = 'http://portfolioapi.app/api/v1';
+    private url       = this.domain.url;//'http://portfolioapi.app/api/v1';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     get(): Promise<LikeModel[]>{

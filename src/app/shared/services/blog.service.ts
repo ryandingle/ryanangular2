@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { BlogModel, TagModel, CategoryModel, Errors  }  from '../models';
 import '../rxjs-operator';
+import { DomainService } from '../../shared';
 
 @Injectable()
 export class BlogService {
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private domain: DomainService) { }
 
-    private url       = 'http://portfolioapi.app/api/v1';
-    private headers = new Headers({'Accept': 'application/json'});
+    private url       = this.domain.url;//'http://portfolioapi.app/api/v1';
+    private headers   = new Headers({'Accept': 'application/json'});
 
     list(data: any): Promise<BlogModel[]>{
       return this.http.post(this.url+'/blog', data, {headers: this.headers})
