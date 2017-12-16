@@ -325,7 +325,7 @@
 	            	</div>
 		            <div class="form-group {{ errors?.photo ? 'has-error' : '' }}">
 		                <label>Image Cover</label>
-		                <input type="file" class="form-control" formControlName="image" (change)="getFile($event)">
+		                <input type="file" formControlName="image" (change)="getFile($event)">
 		                <small *ngIf="errors?.photo"> 
 		                    <span class="help-block">{{ errors?.photo }} </span> 
 		                </small>
