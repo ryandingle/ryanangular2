@@ -3025,7 +3025,7 @@ var AuthService = (function () {
         this.http = http;
         this.domain = domain;
         this.islogin = localStorage.getItem('token') ? true : false;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     AuthService.prototype.login = function (data) {
@@ -3121,7 +3121,7 @@ var BlogService = (function () {
     function BlogService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     BlogService.prototype.list = function (data) {
@@ -3225,7 +3225,7 @@ var CategoryService = (function () {
     function CategoryService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     CategoryService.prototype.list = function () {
@@ -3305,7 +3305,7 @@ var CounterService = (function () {
     function CounterService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     CounterService.prototype.get = function () {
@@ -3524,7 +3524,7 @@ var PortfolioService = (function () {
     function PortfolioService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     PortfolioService.prototype.list = function (data) {
@@ -3610,7 +3610,7 @@ var SiteService = (function () {
     function SiteService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     SiteService.prototype.getSite = function () {
@@ -3678,7 +3678,7 @@ var TagService = (function () {
     function TagService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     TagService.prototype.list = function () {
@@ -3758,7 +3758,7 @@ var UserService = (function () {
     function UserService(http, domain) {
         this.http = http;
         this.domain = domain;
-        this.url = this.domain.url; //'http://portfolioapi.app/api/v1';
+        this.url = 'https://api.rldwebshop.xyz/api/v1';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Accept': 'application/json' });
     }
     UserService.prototype.get = function (id) {

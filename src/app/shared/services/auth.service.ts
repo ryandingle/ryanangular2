@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   private islogin   = localStorage.getItem('token') ? true : false;
-  private url       = this.domain.url;//'http://portfolioapi.app/api/v1';
+  private url       = 'https://api.rldwebshop.xyz/api/v1';
   private headers   = new Headers({'Accept': 'application/json'});
 
   login(data: any): Promise<UserModel>{

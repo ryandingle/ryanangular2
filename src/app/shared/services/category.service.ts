@@ -10,7 +10,7 @@ export class CategoryService {
     constructor(private http: Http,
     private domain: DomainService) { }
 
-    private url       = this.domain.url;//'http://portfolioapi.app/api/v1';
+    private url       = 'https://api.rldwebshop.xyz/api/v1';
     private headers = new Headers({'Accept': 'application/json'});
 
     list(): Promise<CategoryModel[]>{
